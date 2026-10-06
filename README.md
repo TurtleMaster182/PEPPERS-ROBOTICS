@@ -77,7 +77,7 @@ The film, GIFs, and GLB files are still large. They load on demand; original ass
 
 ## Hosting
 
-The page can be served from `public/`. On Vercel, select framework **Other**, leave the build command empty, and use **public** as the output directory. Keep the top-level `api/` and `lib/` folders for the Q&A endpoint. The existing `vercel.json` security headers are preserved.
+The page can be served from `public/`. On Vercel, set Root Directory to the folder containing `package.json`, `vercel.json`, `api/`, and `public/` (normally the repository root), never to `public`. The checked-in configuration selects framework **Other**, skips the build command, and uses **public** as the output directory. Node is pinned to 22.x. Keep the top-level `api/` and `lib/` folders for the Q&A endpoint. The existing `vercel.json` security headers are preserved.
 
 The Q&A requires server-side `GEMINI_API_KEY`, `UPSTASH_REDIS_REST_URL`, and `UPSTASH_REDIS_REST_TOKEN`. See `SECURITY.md`. Keep keys out of `public/`. For local chat, copy `.env.example` to `.env.local` in the project root and fill in all three values privately. Restart `npm start` after changing them. The preview loads `.env.local`, then `.env` defaults; existing process environment variables take precedence. Startup lists missing setting names without printing secrets. On Vercel, configure these variables in the project environment settings and redeploy. This rebuild does not deploy the site or configure external accounts.
 
