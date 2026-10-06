@@ -1,0 +1,17 @@
+{
+  "workshop": {
+    "media": [
+      { "src": "2026-2027/work.jpeg", "alt": "Building and testing the robot together" },
+      { "src": "2026-2027/measure.jpeg", "alt": "Checking a mechanism’s measurements" },
+      { "src": "2025-2026/LAB1CLEAN.jpg", "alt": "Inside the Peppers workshop" },
+      { "src": "2025-2026/CAD.png", "alt": "Working through a robot design in CAD" }
+    ]
+  },
+  "team": {
+    "media": [
+      { "src": "2026-2027/KICKOFF1.jpeg", "alt": "Peppers team members at Kickathon" },
+      { "src": "photos/team-competition.webp", "alt": "The team together at a robotics competition" },
+      { "src": "2026-2027/GROUP.jpeg", "alt": "A group photo with Peppers" }
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "kickathon": {
+    "media": [
+      { "src": "2026-2027/KICKOFF1.jpeg", "alt": "The team at Kickathon" },
+      { "src": "2026-2027/V1.jpeg", "alt": "Cristina in the workshop" },
+      { "src": "2026-2027/output.gif", "alt": "Testing the build" },
+      { "src": "2026-2027/crash.gif", "alt": "Learning through testing" },
+      { "src": "2026-2027/dance.gif", "alt": "A moment with the team" },
+      { "src": "2026-2027/GROUP.jpeg", "alt": "Peppers together" },
+      { "src": "2026-2027/score.gif", "alt": "Putting the robot to work" },
+      { "src": "2026-2027/measure.jpeg", "alt": "Checking the measurements" },
+      { "src": "2026-2027/work.jpeg", "alt": "Building Cristina together" }
+    ]
+  },
+  "2025-26": {
+    "model": "models/robot.glb",
+    "media": [
+      { "src": "2025-2026/CAD.png", "alt": "The robot in CAD" },
+      { "src": "photos/team-competition.webp", "alt": "Team members at competition" },
+      { "src": "2025-2026/LAB1CLEAN.jpg", "alt": "Inside the Peppers workshop" },
+      { "src": "2025-2026/C1CURAT.jpg", "alt": "The build space" }
+    ]
+  },
+  "2024-25": { "model": "models/robot1.glb", "media": [] },
+  "2023-24": { "model": "models/robot2.glb", "media": [] },
+  "2022-23": { "media": [] },
+  "coming-soon": {
+    "media": [
+      { "src": "https://picsum.photos/id/1025/700/440", "alt": "The Coming Soon pug, our permanent workshop supervisor" }
+    ]
+  }
+}
