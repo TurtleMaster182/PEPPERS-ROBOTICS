@@ -4,11 +4,15 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "ai:example": "node --experimental-strip-types index.ts",
     "dev": "node scripts/serve.mjs",
     "start": "node scripts/serve.mjs",
     "test": "node --test tests/*.test.mjs"
   },
   "engines": {
     "node": "22.x"
+  },
+  "dependencies": {
+    "ai": "^7.0.128"
   }
 }
