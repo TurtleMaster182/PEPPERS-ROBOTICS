@@ -15,7 +15,7 @@ for (const name of ['.env.local', '.env']) {
     if (error.code !== 'ENOENT') throw new Error(`Could not load ${name}; check the local settings file.`);
   }
 }
-const missingSettings = ['GEMINI_API_KEY', 'UPSTASH_REDIS_REST_URL', 'UPSTASH_REDIS_REST_TOKEN']
+const missingSettings = ['GEMINI_API_KEY']
   .filter(name => !process.env[name]?.trim());
 if (missingSettings.length) {
   console.warn(`Chat is not configured. Set ${missingSettings.join(', ')} in .env.local, then restart the server.`);

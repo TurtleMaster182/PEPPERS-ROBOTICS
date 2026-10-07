@@ -30,7 +30,7 @@ npm test
 | `public/js/viewer.js` | The single, on-demand 3D viewer |
 | `public/chat-widget.js`, `public/chat-widget.css` | Q&A interface |
 | `lib/team-info.mjs` | Public facts supplied to the Q&A bot |
-| `api/chat.js`, `lib/chat-security.mjs` | Protected chat endpoint and quota checks |
+| `api/chat.js`, `lib/chat-security.mjs` | Chat endpoint and request validation |
 | `scripts/serve.mjs` | Local preview server |
 
 `public/` is the website root. Use `photos/name.jpg` in browser paths, not `public/photos/name.jpg`.
@@ -79,7 +79,7 @@ The film, GIFs, and GLB files are still large. They load on demand; original ass
 
 The page can be served from `public/`. On Vercel, set Root Directory to the folder containing `package.json`, `vercel.json`, `api/`, and `public/` (normally the repository root), never to `public`. The checked-in configuration selects framework **Other**, skips the build command, and uses **public** as the output directory. Node is pinned to 22.x. Keep the top-level `api/` and `lib/` folders for the Q&A endpoint. The existing `vercel.json` security headers are preserved.
 
-The Q&A requires server-side `GEMINI_API_KEY`, `UPSTASH_REDIS_REST_URL`, and `UPSTASH_REDIS_REST_TOKEN`. See `SECURITY.md`. Keep keys out of `public/`. For local chat, copy `.env.example` to `.env.local` in the project root and fill in all three values privately. Restart `npm start` after changing them. The preview loads `.env.local`, then `.env` defaults; existing process environment variables take precedence. Startup lists missing setting names without printing secrets. On Vercel, configure these variables in the project environment settings and redeploy. This rebuild does not deploy the site or configure external accounts.
+The Q&A requires server-side `GEMINI_API_KEY`. See `SECURITY.md`. Keep keys out of `public/`. For local chat, copy `.env.example` to `.env.local` in the project root and fill in the key privately. Restart `npm start` after changing them. The preview loads `.env.local`, then `.env` defaults; existing process environment variables take precedence. Startup lists missing setting names without printing secrets. On Vercel, configure this variable in the project environment settings and redeploy. This rebuild does not deploy the site or configure external accounts.
 
 Tests cover the protected endpoint, safe widget rendering, gallery/asset references, section links, pinned script policies, and the permanent pug. Before release, also open the page on desktop and phone, try both themes, all galleries and models, the film, and a configured live chat request.
 # PEPPERS-ROBOTICS

@@ -3,15 +3,15 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import vm from 'node:vm';
 import handler from '../api/chat.js';
-import { readMessages, QUOTA_SCRIPT } from '../lib/chat-security.mjs';
+import { readMessages } from '../lib/chat-security.mjs';
 
 const realFetch = globalThis.fetch;
 const savedEnv = { ...process.env };
 afterEach(() => { globalThis.fetch = realFetch; process.env = { ...savedEnv }; });
 function configure() {
   process.env.GEMINI_API_KEY = 'test-secret-never-echo';
-  process.env.UPSTASH_REDIS_REST_URL = 'https://quota.example';
-  process.env.UPSTASH_REDIS_REST_TOKEN = 'test-quota-token';
+  delete process.env.UPSTASH_REDIS_REST_URL;
+  delete process.env.UPSTASH_REDIS_REST_TOKEN;
 }
 function request(body = { messages: [{ role: 'user', content: 'What is the team number?' }] }, headers = {}) {
   return new Request('https://site.example/api/chat', {
@@ -21,12 +21,11 @@ function request(body = { messages: [{ role: 'user', content: 'What is the team 
 function provider(text = 'Team 19044') {
   return new Response(`data: ${JSON.stringify({ candidates: [{ content: { parts: [{ text }] } }] })}\n\n`, { headers: { 'content-type': 'text/event-stream' } });
 }
-function mockServices(upstream = () => provider(), quota = { result: 0 }) {
+function mockServices(upstream = () => provider()) {
   configure();
   const calls = [];
   globalThis.fetch = async (url, options) => {
     calls.push({ url, options });
-    if (url === 'https://quota.example') return Response.json(quota);
     return upstream(url, options);
   };
   return calls;
@@ -79,61 +78,46 @@ test('slow body receives 408 and is cancelled', async t => {
   await assert.rejects(result, err => err.status === 408);
   assert.equal(cancelled, true);
 });
-test('missing quota configuration fails closed without exposing secrets', async () => {
+test('missing Gemini key returns 503 without outbound traffic or secrets', async () => {
   const calls = mockServices();
-  delete process.env.UPSTASH_REDIS_REST_TOKEN;
+  delete process.env.GEMINI_API_KEY;
   const res = await handler(request());
   assert.equal(res.status, 503);
   assert.equal(calls.length, 0);
-  assert.doesNotMatch(await res.text(), /secret|UPSTASH|GEMINI/);
+  assert.doesNotMatch(await res.text(), /secret|GEMINI/);
 });
-test('quota denial returns Retry-After without a model call', async () => {
-  const calls = mockServices(undefined, { result: 59 });
+test('provider network failure is sanitized', async () => {
+  const calls = mockServices(() => { throw new Error('secret'); });
   const res = await handler(request());
-  assert.equal(res.status, 429);
-  assert.equal(res.headers.get('retry-after'), '59');
-  assert.equal(calls.length, 1);
-  const command = JSON.parse(calls[0].options.body);
-  assert.deepEqual(command, ['EVAL', QUOTA_SCRIPT, '2', 'peppers:chat:minute', 'peppers:chat:day', '20', '60', '200', '86400']);
-});
-test('quota error or malformed result fails closed', async () => {
-  for (const value of [{ error: 'private diagnostic' }, { result: '0' }, { result: -1 }]) {
-    const calls = mockServices(undefined, value);
-    assert.equal((await handler(request())).status, 503);
-    assert.equal(calls.length, 1);
-  }
-});
-test('quota network failure fails closed', async () => {
-  configure();
-  globalThis.fetch = async () => { throw new Error('secret'); };
-  const res = await handler(request());
-  assert.equal(res.status, 503);
+  assert.equal(res.status, 502);
+  assert.equal(calls.length, 2);
   assert.doesNotMatch(await res.text(), /secret/);
 });
-test('valid same-origin request streams text with private cache policy', async () => {
+test('Gemini key alone streams text without a quota service', async () => {
   const calls = mockServices();
   const res = await handler(request(undefined, { origin: 'https://site.example' }));
   assert.equal(res.status, 200);
   assert.equal(res.headers.get('access-control-allow-origin'), null);
   assert.match(res.headers.get('cache-control'), /no-store/);
   assert.match(await res.text(), /Team 19044/);
-  assert.equal(calls.length, 2);
-  assert.doesNotMatch(calls[1].url, /test-secret|key=/);
-  assert.equal(calls[1].options.headers['x-goog-api-key'], 'test-secret-never-echo');
+  assert.equal(calls.length, 1);
+  assert.equal(new URL(calls[0].url).hostname, 'generativelanguage.googleapis.com');
+  assert.doesNotMatch(calls[0].url, /test-secret|key=/);
+  assert.equal(calls[0].options.headers['x-goog-api-key'], 'test-secret-never-echo');
 });
 test('provider errors are sanitized and auth errors are not retried', async () => {
   const calls = mockServices(() => new Response('private provider diagnostic test-secret', { status: 403 }));
   const res = await handler(request());
   assert.equal(res.status, 502);
   assert.doesNotMatch(await res.text(), /secret|diagnostic|detail/);
-  assert.equal(calls.length, 2);
+  assert.equal(calls.length, 1);
 });
 test('transient failure can fall back once', async () => {
   let attempts = 0;
   const calls = mockServices(() => ++attempts === 1 ? new Response('busy', { status: 503 }) : provider());
   const res = await handler(request());
   assert.match(await res.text(), /Team 19044/);
-  assert.equal(calls.length, 3);
+  assert.equal(calls.length, 2);
 });
 test('stream cap returns a sanitized interruption', async () => {
   mockServices(() => new Response('x'.repeat(262145)));

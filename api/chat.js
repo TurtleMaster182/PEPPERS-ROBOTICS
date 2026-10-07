@@ -1,4 +1,4 @@
-import { ClientError, jsonError, readMessages, reserveQuota } from '../lib/chat-security.mjs';
+import { ClientError, jsonError, readMessages } from '../lib/chat-security.mjs';
 import { TEAM_INFO } from '../lib/team-info.mjs';
 
 // Assembles TEAM_INFO into the single system-instruction string Gemini
@@ -91,7 +91,7 @@ export const config = {
 };
 
 export default async function handler(req) {
-  // Browser boundary only; the shared quota also covers direct HTTP clients.
+  // Browser boundary only; direct HTTP clients can supply their own Origin.
   const origin = req.headers.get('origin');
   if ((origin && origin !== new URL(req.url).origin) ||
       req.headers.get('sec-fetch-site') === 'cross-site') {
@@ -105,12 +105,6 @@ export default async function handler(req) {
     return jsonError(err instanceof ClientError ? err.status : 400, err instanceof ClientError ? err.message : 'Invalid request.');
   }
   if (!process.env.GEMINI_API_KEY) return jsonError(503, 'Chat is temporarily unavailable.');
-  try {
-    const retryAfter = await reserveQuota();
-    if (retryAfter) return jsonError(429, 'Chat usage limit reached. Please try again later.', { 'Retry-After': String(retryAfter) });
-  } catch {
-    return jsonError(503, 'Chat is temporarily unavailable.');
-  }
 
   const contents = messages.map(msg => ({
     role: msg.role === 'assistant' ? 'model' : 'user', parts: [{ text: msg.content }],
