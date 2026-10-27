@@ -13,6 +13,7 @@
   --text: #f4f3ed;
   --muted: #afb2a9;
   --line: #343731;
+  /* Pure red for accents and filled areas in both themes. */
   --accent: #ff0000;
   --accent-solid: #ff0000;
   --max-width: 1360px;
@@ -26,4 +27,5 @@
   --text: #171916;
   --muted: #575c51;
   --line: #d1d3c9;
+  --accent: var(--accent-solid);
 }

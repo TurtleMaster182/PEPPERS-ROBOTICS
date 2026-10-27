@@ -5,7 +5,7 @@
 .icon-button { display: inline-grid; place-items: center; width: 42px; height: 42px; padding: 0; border: 1px solid var(--line); border-radius: 50%; background: transparent; font-size: 21px; }
 .icon-button:hover { background: var(--surface-alt); }
 .button { display: inline-flex; justify-content: space-between; align-items: center; gap: 30px; padding: 14px 20px; background: var(--text); color: var(--bg); border: 1px solid var(--text); font-size: 13px; font-weight: 700; }
-.button:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+.button:hover { background: var(--accent-solid); color: #fff; border-color: var(--accent-solid); }
 .text-button { display: inline-flex; align-items: center; gap: 14px; border: 0; padding: 10px 0; background: none; font-size: 12px; font-weight: 600; text-align: left; }
 .text-button:hover { color: var(--accent); }
 .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 24px; }
