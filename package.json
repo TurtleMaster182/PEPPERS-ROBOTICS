@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "build": "node scripts/build.mjs",
     "ai:example": "node --experimental-strip-types index.ts",
     "dev": "node scripts/serve.mjs",
     "start": "node scripts/serve.mjs",

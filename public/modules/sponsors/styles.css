@@ -1,0 +1,12 @@
+/* Sponsors. Keep this module’s responsive rules here too. */
+.support-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+.support-grid article { display: flex; flex-direction: column; border: 1px solid var(--line); padding: 28px; }
+.support-symbol { font: 400 28px 'ROG', monospace; color: var(--accent); margin-bottom: 30px; }
+.support-grid h3 { font-size: 23px; min-height: 56px; }
+.support-grid p { font-size: 13px; color: var(--muted); margin: 15px 0 30px; }
+.support-grid .button { margin-top: auto; }
+@media (max-width: 800px) {
+  .support-grid { grid-template-columns: 1fr; }
+  .support-grid h3 { min-height: 0; }
+  .support-symbol { margin-bottom: 20px; }
+}

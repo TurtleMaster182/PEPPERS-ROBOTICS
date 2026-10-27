@@ -1,0 +1,26 @@
+/* Header. Keep this module’s responsive rules here too. */
+.site-header { position: sticky; top: 0; z-index: 20; border-bottom: 1px solid var(--line); background: var(--bg); }
+.header-inner { min-height: 84px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+.site-header nav, .header-actions { display: flex; align-items: center; gap: 22px; }
+.site-header nav a { font-size: 13px; font-weight: 600; }
+.site-header a:hover { color: var(--accent); }
+.header-actions { gap: 20px; }
+.menu-toggle { display: none; padding: 10px 0; background: none; border: 0; font-size: 13px; }
+.menu-toggle span { margin-left: 8px; }
+.nav-cta { padding: 11px 15px; font-size: 11px; gap: 14px; }
+@media (max-width: 1100px) {
+  .site-header nav { gap: 17px; }
+  .site-header nav a { font-size: 12px; }
+  .nav-cta { display: none; }
+}
+@media (max-width: 760px) {
+  .header-inner { min-height: 70px; flex-wrap: wrap; gap: 0; }
+  .header-actions { gap: 18px; }
+  .menu-toggle { display: block; }
+  .site-header nav { order: 3; width: 100%; flex-wrap: wrap; gap: 0; border-top: 1px solid var(--line); padding-block: 8px; }
+  .site-header nav a { padding: 12px 20px 12px 0; }
+}
+
+@media (max-width: 760px) {
+  .js .site-header nav:not(.is-open) { display: none; }
+}

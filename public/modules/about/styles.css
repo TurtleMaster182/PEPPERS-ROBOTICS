@@ -1,0 +1,13 @@
+/* About. Keep this module’s responsive rules here too. */
+.join-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 9%; }
+.section-intro { color: var(--muted); font-size: 14px; max-width: 40ch; margin: 24px 0 30px; }
+.faq-list details { border-bottom: 1px solid var(--line); }
+.faq-list details:first-child { border-top: 1px solid var(--line); }
+.faq-list summary { display: flex; justify-content: space-between; align-items: center; gap: 25px; padding: 24px 0; font-size: 15px; font-weight: 600; }
+.faq-list details > div { padding-bottom: 24px; font-size: 13px; color: var(--muted); }
+.faq-list p + p { margin-top: 14px; }
+.faq-list .button, .faq-list .text-button { margin-top: 20px; }
+@media (max-width: 800px) {
+  .join-grid { grid-template-columns: 1fr; gap: 38px; }
+}
+.join-section { background: var(--bg); border-block: 1px solid var(--line); }

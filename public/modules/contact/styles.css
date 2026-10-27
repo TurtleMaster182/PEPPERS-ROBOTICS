@@ -1,0 +1,16 @@
+/* Contact. Keep this module’s responsive rules here too. */
+.contact-section { background: var(--accent-solid); color: #fff; }
+.contact-inner { display: grid; grid-template-columns: 1.1fr 1fr; gap: 8%; align-items: center; }
+.contact-inner h2 { font-size: clamp(42px, 5vw, 70px); margin-top: 25px; }
+.contact-inner > div > p:not(.eyebrow) { font-size: 14px; max-width: 46ch; }
+.contact-inner .actions { gap: 10px; margin-top: 28px; }
+.contact-inner .button { background: #fff; border-color: #fff; color: #101110; font-size: 11px; gap: 20px; }
+.contact-inner .button:hover { background: #101110; color: #fff; border-color: #101110; }
+.contact-inner .contact-chat { background: transparent; color: #fff; border-color: #ffffff60; }
+.contact-email { display: inline-block; max-width: 100%; margin-top: 22px; font-size: clamp(16px, 1.6vw, 21px); font-weight: 600; overflow-wrap: anywhere; }
+.contact-email:hover { text-decoration: underline; }
+.contact-socials { display: flex; flex-wrap: wrap; gap: 18px; padding-top: 22px; margin-top: 25px; border-top: 1px solid #ffffff50; font-size: 12px; }
+.contact-socials a:hover { text-decoration: underline; }
+@media (max-width: 800px) {
+  .contact-inner { grid-template-columns: 1fr; gap: 38px; }
+}

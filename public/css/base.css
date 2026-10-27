@@ -1,0 +1,37 @@
+/* Base. Keep this module’s responsive rules here too. */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+body { margin: 0; background: var(--bg); color: var(--text); font-family: 'ROG', Inter, Arial, sans-serif; line-height: 1.65; }
+::selection { background: var(--accent); color: var(--bg); }
+h1, h2, h3, p, figure { margin: 0; }
+h1, h2, h3 { font-family: 'ROG', Archivo, Arial, sans-serif; }
+h1, h2 { font-weight: 800; letter-spacing: -.045em; line-height: 1.05; }
+h2 { font-size: clamp(32px, 3.7vw, 50px); }
+h3 { font-size: 23px; line-height: 1.2; letter-spacing: -.025em; }
+a { color: inherit; text-decoration: none; }
+button, textarea { font: inherit; }
+button { cursor: pointer; }
+button, a, textarea, summary { -webkit-tap-highlight-color: transparent; }
+button:disabled { cursor: wait; opacity: .65; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+img, video { display: block; max-width: 100%; }
+button { color: inherit; }
+[hidden] { display: none !important; }
+.wrap { width: min(var(--max-width), calc(100% - var(--gutter) * 2)); margin-inline: auto; }
+.section { padding-block: clamp(64px, 8vw, 112px); }
+.eyebrow { font-size: 11px; font-weight: 600; letter-spacing: .11em; text-transform: uppercase; }
+.section-number { color: var(--accent); margin-bottom: 22px; }
+.skip-link { position: fixed; top: 10px; left: 10px; padding: 10px 20px; background: var(--text); color: var(--bg); z-index: 100; transform: translateY(-150%); }
+.skip-link:focus { transform: none; }
+summary { list-style: none; cursor: pointer; }
+summary::-webkit-details-marker { display: none; }
+summary:hover { color: var(--accent); }
+summary > span { font-size: 18px; transition: transform .15s; }
+details[open] > summary > span { transform: rotate(45deg); }
+@media (max-width: 760px) {
+  html { scroll-padding-top: 84px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}

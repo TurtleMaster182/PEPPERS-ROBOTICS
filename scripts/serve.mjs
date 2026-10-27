@@ -7,6 +7,7 @@ import { pipeline } from 'node:stream/promises';
 import { fileURLToPath } from 'node:url';
 import { resolve, extname, sep } from 'node:path';
 import chat from '../api/chat.js';
+import { buildPage, renderPage } from './build.mjs';
 
 // Explicit process settings win; .env.local overrides the .env defaults.
 for (const name of ['.env.local', '.env']) {
@@ -26,6 +27,8 @@ const config = JSON.parse(await readFile(new URL('../vercel.json', import.meta.u
 const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.js': 'text/javascript', '.json': 'application/json', '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.gif': 'image/gif', '.webp': 'image/webp', '.ico': 'image/x-icon', '.webm': 'video/webm', '.glb': 'model/gltf-binary' };
 const port = Number(process.env.PORT || 4173);
 
+await buildPage();
+
 createServer(async (req, res) => {
   for (const header of config.headers[0].headers) res.setHeader(header.key, header.value);
   try {
@@ -40,6 +43,13 @@ createServer(async (req, res) => {
     }
     if (!['GET', 'HEAD'].includes(req.method)) { res.writeHead(405, { Allow: 'GET, HEAD' }); res.end(); return; }
     const pathname = decodeURIComponent(url.pathname);
+    if (['/', '/index', '/index.html'].includes(pathname)) {
+      // Re-read the shell and section files on refresh, so maintainers need no watcher.
+      const html = Buffer.from(await renderPage());
+      res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8', 'Content-Length': html.length, 'Cache-Control': 'no-cache' });
+      res.end(req.method === 'HEAD' ? undefined : html);
+      return;
+    }
     const file = resolve(root, `.${pathname === '/' || pathname === '/index' ? '/index.html' : pathname}`);
     if (!file.startsWith(root.endsWith(sep) ? root : root + sep)) { res.writeHead(403); res.end(); return; }
     const info = await stat(file);

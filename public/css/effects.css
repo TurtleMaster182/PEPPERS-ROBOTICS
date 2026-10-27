@@ -1,0 +1,16 @@
+/* Effects. Keep this module’s responsive rules here too. */
+.is-burning { visibility: hidden; }
+.burn-surface { position: fixed; z-index: 9; transform-origin: center; filter: drop-shadow(0 12px 18px #0004); pointer-events: none; }
+.burn-particles { position: fixed; inset: 0; width: 100vw; height: 100vh; z-index: 10; pointer-events: none; }
+.dither-pending { opacity: 0; }
+.dither-running { opacity: var(--dither-opacity, .3); translate: 0 var(--dither-rise, 36px); mask-image: var(--dither-mask); mask-size: 100% 3700%; mask-position: 0 var(--dither-position, 0%); mask-repeat: no-repeat; }
+@media (prefers-reduced-motion: reduce) {
+  .dither-pending, .dither-running { opacity: 1; translate: none; mask-image: none; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .dither-boot :is(.opening-photo, .hero-copy > *, .hero-build, .section-heading > *, .season-card, .event-controls, .event-card, .support-grid > article, .join-grid > div, .album-button, .contact-section, .site-footer > div) { opacity: 0; }
+}
+
+/* Liquid glass photos (js/liquid-glass.js). The filter is sized per photo; the corner radius is read from here. */
+/*.liquid-glass { border-radius: 22px; }
+.liquid-glass-defs { position: absolute; width: 0; height: 0; overflow: hidden; }*/

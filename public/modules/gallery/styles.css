@@ -1,0 +1,11 @@
+/* Gallery. Keep this module’s responsive rules here too. */
+.album-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.album-button { padding: 25px 20px; text-align: left; display: grid; grid-template-columns: 1fr auto; gap: 20px; border: 1px solid var(--line); background: var(--surface); }
+.album-icon { color: var(--accent); font: 400 22px 'ROG', monospace; grid-column: 1 / -1; }
+.album-button .eyebrow { display: block; font-size: 8px; color: var(--muted); margin-bottom: 8px; }
+.album-button strong { font-family: 'ROG', Archivo, Arial, sans-serif; font-size: 20px; }
+.album-button > span:last-child { align-self: end; font-size: 24px; }
+.album-button:hover { border-color: var(--accent); }
+@media (max-width: 800px) {
+  .album-grid { grid-template-columns: 1fr; }
+}

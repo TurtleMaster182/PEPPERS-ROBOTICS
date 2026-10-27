@@ -31,12 +31,12 @@ function disposeObject(object) {
   });
 }
 
-export function createViewer(container, url) {
+export function createViewer(container, url, { autofocus = true } = {}) {
   container.innerHTML = `<div class="viewer-stage"><canvas tabindex="0" role="img" aria-label="Interactive 3D model. Use arrow keys to rotate."></canvas><p class="viewer-status" role="status">Loading the 3D model…</p></div><div class="viewer-toolbar"><button type="button" data-turn="-1" aria-label="Rotate model left">← Rotate</button><button type="button" data-reset>Reset view</button><button type="button" data-turn="1" aria-label="Rotate model right">Rotate →</button></div><p class="viewer-hint">Move your pointer over the model, use the rotation buttons, or focus the model and use arrow keys.</p>`;
   const canvas = container.querySelector('canvas');
   const stage = container.querySelector('.viewer-stage');
   const status = container.querySelector('.viewer-status');
-  canvas.focus({ preventScroll: true });
+  if (autofocus) canvas.focus({ preventScroll: true });
   const abort = new AbortController();
   let renderer, observer, model, scene, camera, holder;
   let disposed = false;
@@ -105,9 +105,10 @@ export function createViewer(container, url) {
       });
       observer.observe(stage);
       status.hidden = true;
+      container.classList.add('model-ready');
     } catch {
       if (!disposed) {
-        status.textContent = 'The 3D preview could not load. You can still explore the photos below.';
+        status.textContent = 'The 3D preview could not load. Photos are available in the build galleries.';
         canvas.hidden = true;
         container.querySelector('.viewer-toolbar').hidden = true;
         container.querySelector('.viewer-hint').hidden = true;

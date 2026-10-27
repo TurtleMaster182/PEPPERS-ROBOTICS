@@ -1,0 +1,18 @@
+/* Details. Keep this module’s responsive rules here too. */
+body.dialog-open { overflow: hidden; }
+dialog { padding: 0; width: min(960px, calc(100% - 32px)); max-height: calc(100dvh - 48px); background: var(--bg); color: var(--text); border: 1px solid var(--line); }
+dialog::backdrop { background: #000b; }
+.dialog-inner { padding: clamp(22px, 4vw, 42px); }
+.dialog-header { position: sticky; top: 0; z-index: 2; background: var(--bg); padding-bottom: 12px; display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; }
+.dialog-header h2 { font-size: clamp(26px, 4vw, 40px); margin-top: 10px; }
+.dialog-header .eyebrow { color: var(--accent); }
+.dialog-header .icon-button { flex-shrink: 0; }
+.dialog-description { font-size: 13px; color: var(--muted); margin: 20px 0 26px; max-width: 65ch; }
+.detail-gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.detail-gallery img, .detail-gallery video { width: 100%; height: auto; background: var(--surface); }
+.detail-gallery a { display: block; }
+.detail-gallery figcaption { font-size: 10px; color: var(--muted); padding-block: 8px; }
+.film-player { width: 100%; max-height: 65dvh; background: #000; }
+@media (max-width: 460px) {
+  .detail-gallery { grid-template-columns: 1fr; }
+}

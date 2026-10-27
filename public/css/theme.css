@@ -1,0 +1,29 @@
+/* Site-wide colors, spacing, and font. Change the palette here. */
+@font-face { font-family: 'ROG';
+  src: url('../fonts/rogfonts-regular.otf') format('opentype');
+  font-style: normal;
+  font-weight: 100 900;
+  unicode-range: U+0030-0039;
+  font-display: swap; }
+:root {
+  color-scheme: dark;
+  --bg: #0a0b0d;
+  --surface: #131513;
+  --surface-alt: #1b1e1b;
+  --text: #f4f3ed;
+  --muted: #afb2a9;
+  --line: #343731;
+  --accent: #ff0000;
+  --accent-solid: #ff0000;
+  --max-width: 1360px;
+  --gutter: clamp(22px, 4vw, 64px);
+}
+:root.light-mode {
+  color-scheme: light;
+  --bg: #fff;
+  --surface: #f5f3ee;
+  --surface-alt: #e8e6e0;
+  --text: #171916;
+  --muted: #575c51;
+  --line: #d1d3c9;
+}

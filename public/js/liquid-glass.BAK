@@ -1,0 +1,163 @@
+// Liquid glass: every photo sits under a thick, rounded glass slab. Its bezel bends the picture
+// like a lens, splits colour slightly at the rim, and catches a highlight from the top left.
+// Each photo gets its own SVG filter built for its size. To turn this off, remove
+// initLiquidGlass() and its import from main.js; the CSS is the .liquid-glass rules in css/effects.css.
+const SVG = 'http://www.w3.org/2000/svg';
+const MAP_SIZE = 360;
+const MIN_SIZE = 120;
+const LIGHT = { x: -.6, y: -.8 };
+const SKIP = '.heat-word, .viewer img, [data-no-glass]';
+
+let defs;
+let count = 0;
+
+function svgDefs() {
+  if (defs) return defs;
+  const svg = document.createElementNS(SVG, 'svg');
+  svg.setAttribute('aria-hidden', 'true');
+  svg.setAttribute('class', 'liquid-glass-defs');
+  defs = document.createElementNS(SVG, 'defs');
+  svg.append(defs);
+  document.body.append(svg);
+  return defs;
+}
+
+function node(name, attributes, parent) {
+  const element = document.createElementNS(SVG, name);
+  for (const [key, value] of Object.entries(attributes)) element.setAttribute(key, value);
+  parent?.append(element);
+  return element;
+}
+
+// Two maps for one photo: how far the bezel bends each pixel, and the light it reflects.
+function buildMaps(width, height, radius, bezel) {
+  const scale = Math.min(1, MAP_SIZE / Math.max(width, height));
+  const w = Math.max(2, Math.round(width * scale)), h = Math.max(2, Math.round(height * scale));
+  const r = Math.min(radius * scale, w / 2, h / 2), b = Math.max(1, bezel * scale);
+  const bend = new ImageData(w, h), light = new ImageData(w, h);
+  for (let y = 0; y < h; y++) {
+    for (let x = 0; x < w; x++) {
+      const px = x + .5 - w / 2, py = y + .5 - h / 2;
+      const qx = Math.abs(px) - (w / 2 - r), qy = Math.abs(py) - (h / 2 - r);
+      // Distance in from the rounded edge, and the outward normal there.
+      const depth = r - (Math.hypot(Math.max(qx, 0), Math.max(qy, 0)) + Math.min(Math.max(qx, qy), 0));
+      let nx = 0, ny = 0;
+      if (qx > 0 && qy > 0) { const n = Math.hypot(qx, qy) || 1; nx = qx / n; ny = qy / n; }
+      else if (qx > qy) nx = 1;
+      else ny = 1;
+      nx *= Math.sign(px) || 1;
+      ny *= Math.sign(py) || 1;
+      const i = (y * w + x) * 4;
+      const t = Math.min(1, Math.max(0, depth / b));
+      // A convex bezel: steepest at the rim, flat by the time it reaches the face.
+      const slope = depth < 0 ? 0 : Math.pow(1 - t, 2.4);
+      bend.data[i] = 128 - nx * slope * 127;
+      bend.data[i + 1] = 128 - ny * slope * 127;
+      bend.data[i + 2] = 128;
+      bend.data[i + 3] = 255;
+
+      if (depth < 0) continue;
+      const facing = nx * LIGHT.x + ny * LIGHT.y;
+      const rim = Math.exp(-depth / (b * .14));
+      const glint = rim * (.18 + .82 * Math.pow(Math.max(0, facing), 2)) * .9 + rim * Math.max(0, -facing) * .32;
+      const band = Math.pow(1 - t, 1.6) * (t > 0 ? 1 : 0);
+      const sheen = band * Math.max(0, facing) * .16 + (1 - (y + .5) / h) * .07;
+      const shade = band * Math.max(0, -facing) * .2;
+      const white = Math.min(1, glint + sheen);
+      const alpha = Math.min(1, white + shade);
+      light.data[i] = light.data[i + 1] = light.data[i + 2] = alpha ? 255 * white / alpha : 0;
+      light.data[i + 3] = 255 * alpha;
+    }
+  }
+  const url = data => {
+    const canvas = document.createElement('canvas');
+    canvas.width = w;
+    canvas.height = h;
+    canvas.getContext('2d').putImageData(data, 0, 0);
+    return canvas.toDataURL();
+  };
+  return { bend: url(bend), light: url(light) };
+}
+
+function buildFilter(id, width, height, radius) {
+  const bezel = Math.min(Math.min(width, height) * .14, 44);
+  const maps = buildMaps(width, height, radius, bezel);
+  const filter = node('filter', { id, x: 0, y: 0, width, height, filterUnits: 'userSpaceOnUse', 'color-interpolation-filters': 'sRGB' });
+  const box = { x: 0, y: 0, width, height, preserveAspectRatio: 'none' };
+  node('feImage', { ...box, href: maps.bend, result: 'bend' }, filter);
+  // Red bends a little more than blue, which gives the rim its faint rainbow edge.
+  const channels = [['r', 1, '1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0'], ['g', .9, '0 0 0 0 0  0 1 0 0 0  0 0 0 0 0  0 0 0 1 0'], ['b', .8, '0 0 0 0 0  0 0 0 0 0  0 0 1 0 0  0 0 0 1 0']];
+  const maps3 = channels.map(([name, strength, matrix]) => {
+    const map = node('feDisplacementMap', { in: 'SourceGraphic', in2: 'bend', scale: bezel * 1.1 * strength, xChannelSelector: 'R', yChannelSelector: 'G', result: `${name}-bent` }, filter);
+    node('feColorMatrix', { in: `${name}-bent`, type: 'matrix', values: matrix, result: name }, filter);
+    return { map, strength };
+  });
+  node('feComposite', { in: 'r', in2: 'g', operator: 'arithmetic', k2: 1, k3: 1, result: 'rg' }, filter);
+  node('feComposite', { in: 'rg', in2: 'b', operator: 'arithmetic', k2: 1, k3: 1, result: 'glass' }, filter);
+  node('feImage', { ...box, href: maps.light, result: 'light' }, filter);
+  node('feComposite', { in: 'light', in2: 'glass', operator: 'atop' }, filter);
+  return { filter, maps: maps3, bezel };
+}
+
+function applyGlass(image) {
+  if (image.dataset.glass || image.closest(SKIP)) return;
+  image.dataset.glass = 'pending';
+  const id = `liquid-glass-${++count}`;
+  let current, size = '', frame = 0, wobble = 0;
+
+  function rebuild() {
+    frame = 0;
+    const { width, height } = image.getBoundingClientRect();
+    const key = `${Math.round(width)}x${Math.round(height)}`;
+    if (key === size) return;
+    size = key;
+    current?.filter.remove();
+    current = undefined;
+    if (width < MIN_SIZE || height < MIN_SIZE * .66) {
+      image.classList.remove('liquid-glass');
+      image.style.removeProperty('filter');
+      return;
+    }
+    image.classList.add('liquid-glass');
+    const radius = parseFloat(getComputedStyle(image).borderTopLeftRadius) || 0;
+    current = buildFilter(id, Math.round(width), Math.round(height), radius);
+    svgDefs().append(current.filter);
+    image.style.filter = `url(#${id})`;
+    image.dataset.glass = 'on';
+  }
+  new ResizeObserver(() => { if (!frame) frame = requestAnimationFrame(rebuild); }).observe(image);
+
+  // On hover the glass swells a little, then settles back like a liquid.
+  function swell(target) {
+    cancelAnimationFrame(wobble);
+    const start = performance.now();
+    const from = Number(current?.maps[0].map.getAttribute('scale')) / (current?.bezel * 1.1) || 1;
+    const step = now => {
+      if (!current) return;
+      const k = Math.min(1, (now - start) / 650);
+      const spring = 1 - Math.cos(k * Math.PI * 2.5) * Math.exp(-k * 5);
+      const amount = from + (target - from) * spring;
+      for (const { map, strength } of current.maps) map.setAttribute('scale', current.bezel * 1.1 * strength * amount);
+      if (k < 1) wobble = requestAnimationFrame(step);
+    };
+    wobble = requestAnimationFrame(step);
+  }
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    image.addEventListener('pointerenter', () => swell(1.45));
+    image.addEventListener('pointerleave', () => swell(1));
+  }
+}
+
+export function initLiquidGlass() {
+  const scan = root => root.querySelectorAll?.('img').forEach(applyGlass);
+  scan(document);
+  // Gallery and season popups add their photos later.
+  new MutationObserver(records => {
+    for (const record of records) {
+      record.addedNodes.forEach(added => {
+        if (added.tagName === 'IMG') applyGlass(added);
+        else scan(added);
+      });
+    }
+  }).observe(document.body, { childList: true, subtree: true });
+}

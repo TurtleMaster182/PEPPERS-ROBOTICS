@@ -1,9 +1,10 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync, existsSync } from 'node:fs';
+import { renderPage } from '../scripts/build.mjs';
 
 const publicRoot = new URL('../public/', import.meta.url);
-const html = readFileSync(new URL('index.html', publicRoot), 'utf8');
+const html = await renderPage();
 const seasons = JSON.parse(readFileSync(new URL('data/seasons.json', publicRoot), 'utf8'));
 const albums = JSON.parse(readFileSync(new URL('data/albums.json', publicRoot), 'utf8'));
 const values = name => [...html.matchAll(new RegExp(`\\s${name}="([^"]+)"`, 'g'))].map(match => match[1]);

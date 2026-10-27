@@ -1,0 +1,29 @@
+/* Photo Deck. Keep this module’s responsive rules here too. */
+.photo-deck { max-width: 850px; margin: 64px auto 44px; padding: 12px; border-radius: 4px; }
+.deck-stage { position: relative; aspect-ratio: 4 / 3; margin: 0 26px 38px; }
+.deck-card { position: absolute; inset: 0; padding: 12px 12px 0; background: var(--surface-alt); border: 1px solid var(--line); box-shadow: 0 12px 32px #0003; transform: translate(0,0) rotate(0deg); transform-origin: center; }
+.deck-card img { width: 100%; height: calc(100% - 48px); object-fit: contain; background: var(--bg); user-select: none; }
+.deck-card figcaption { height: 48px; display: flex; align-items: center; padding-inline: 6px; font-size: 12px; color: var(--text); }
+.deck-card[data-depth="1"] { transform: translate(10px, 8px) rotate(2deg); }
+.deck-card[data-depth="2"] { transform: translate(-8px, 15px) rotate(-3deg); }
+.deck-card:not([data-depth="0"]):not([data-depth="1"]):not([data-depth="2"]) { transform: translate(5px, 18px) rotate(1deg); }
+.deck-controls { display: flex; align-items: center; gap: 22px; }
+.deck-controls p { margin-right: auto; color: var(--muted); font-size: 12px; }
+#deckCount { white-space: nowrap; font-size: 12px; color: var(--muted); }
+.deck-next { display: grid; place-items: center; flex: 0 0 54px; width: 54px; height: 54px; background: var(--text); color: var(--bg); border: 0; border-radius: 50%; font: 36px/1 Arial, sans-serif; }
+.deck-next:hover { background: var(--accent); color: white; }
+.deck-next[aria-disabled="true"] { cursor: wait; }
+.deck-status { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media (max-width: 600px) {
+  .photo-deck { padding: 6px; margin-top: 36px; }
+  .deck-stage { margin-inline: 12px; aspect-ratio: 4 / 5; }
+  .deck-card { padding: 8px 8px 0; }
+  .deck-card figcaption { font-size: 10px; }
+  .deck-controls { gap: 12px; }
+  .deck-controls p { max-width: 20ch; font-size: 11px; }
+}
+#detailDialog .photo-deck { width: min(100%, 760px); margin-block: 40px 16px; }
+#detailDialog .deck-stage { height: min(48vh, 470px); aspect-ratio: auto; }
+@media (max-width: 600px) {
+  #detailDialog .deck-stage { height: min(48vh, 420px); }
+}
