@@ -1,9 +1,13 @@
+const REVEAL_DURATION = 1450 / 1.2;
+const PIXEL_DENSITY = 2.2;
+
 // A fixed random field lets pixels build in flowing waves without flickering.
 function createWaveField(element) {
   const { width, height } = element.getBoundingClientRect();
-  const columns = Math.max(1, Math.min(96, Math.ceil(width / 10)));
-  const rows = Math.max(1, Math.min(64, Math.ceil(height / 10)));
-  const pixel = 4;
+  const columns = Math.ceil(Math.max(1, Math.min(96, Math.ceil(width / 10))) * PIXEL_DENSITY);
+  const rows = Math.ceil(Math.max(1, Math.min(64, Math.ceil(height / 10))) * PIXEL_DENSITY);
+  // More cells shrink the visible pixels; fewer backing pixels keep the atlas compact.
+  const pixel = 2;
   const frames = 37;
   const frameHeight = rows * pixel;
   const canvas = document.createElement('canvas');
@@ -83,7 +87,7 @@ export function initDitherReveals() {
   function paint(now) {
     frame = undefined;
     active.forEach((state, element) => {
-      const progress = Math.min(1, (now - state.start) / 1450);
+      const progress = Math.min(1, (now - state.start) / REVEAL_DURATION);
       if (progress >= 1) { finish(element); return; }
       const eased = 1 - (1 - progress) ** 3;
       const level = Math.floor(progress * 36);

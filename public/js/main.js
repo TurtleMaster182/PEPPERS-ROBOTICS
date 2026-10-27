@@ -6,7 +6,6 @@ import { initEvents } from '../modules/events/index.js';
 import { initAbout } from '../modules/about/index.js';
 import { initContact } from '../modules/contact/index.js';
 import { initDitherReveals } from './dither-reveal.js';
-import { initLiquidGlass } from './liquid-glass.js';
 
 initHeader();
 initDetails();
@@ -17,4 +16,3 @@ initContact();
 
 // Effects run last so every section is ready before it is revealed.
 initDitherReveals();
-initLiquidGlass();
