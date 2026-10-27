@@ -6,6 +6,9 @@ import { initEvents } from '../modules/events/index.js';
 import { initAbout } from '../modules/about/index.js';
 import { initContact } from '../modules/contact/index.js';
 import { initDitherReveals } from './dither-reveal.js';
+import { initViewportPhotos } from './viewport-photos.js';
+
+initViewportPhotos();
 
 initHeader();
 initDetails();

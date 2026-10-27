@@ -2,8 +2,13 @@
 .is-burning { visibility: hidden; }
 .burn-surface { position: fixed; z-index: 9; transform-origin: center; filter: drop-shadow(0 12px 18px #0004); pointer-events: none; }
 .burn-particles { position: fixed; inset: 0; width: 100vw; height: 100vh; z-index: 10; pointer-events: none; }
+/* Cell side length in CSS pixels, including photos.
+   Override on any section or element to adjust its dither size. */
+:root { --dither-pixel-size: 5; }
+img[data-viewport-src] { visibility: hidden; }
+.dither-defs { position: absolute; width: 0; height: 0; pointer-events: none; }
 .dither-pending { opacity: 0; }
-.dither-running { opacity: var(--dither-opacity, .3); translate: 0 var(--dither-rise, 36px); mask-image: var(--dither-mask); mask-size: 100% 3700%; mask-position: 0 var(--dither-position, 0%); mask-repeat: no-repeat; }
+.dither-running { opacity: 1; mask-image: var(--dither-mask); mask-repeat: no-repeat; }
 @media (prefers-reduced-motion: reduce) {
   .dither-pending, .dither-running { opacity: 1; translate: none; mask-image: none; }
 }

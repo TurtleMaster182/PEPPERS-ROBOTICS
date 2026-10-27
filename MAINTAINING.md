@@ -51,6 +51,14 @@ The film's source and poster are set in the `[data-open-film]` handler in `publi
 
 Reveal and liquid-glass effects start at the end of `public/js/main.js` (the gallery photo burn starts from `public/js/photo-deck.js`). Remove the relevant initializer call and import there to disable an effect. All respect the visitor's reduced-motion preference. Their CSS is in `public/css/effects.css`.
 
+Adjust dither cell size with `--dither-pixel-size` in `public/css/effects.css` (default `5`, without a unit). Each square cell is 5 × 5 CSS pixels on screen for both photos and other content, independent of photo resolution and cropping. Override the property on a section or individual reveal target for a different size. The reveal duration is set by `REVEAL_DURATION` in `public/js/dither-reveal.js`.
+
+Every reveal generates a fresh matrix from a random starting cell and a procedural ink-flow formula. There are no reusable animation maps. The solver runs on demand in `public/js/ink-worker.js`, with a cooperative fallback. See [the formula and measured inputs](docs/dither-flow.md). Below-fold photos use `data-viewport-src` and a matching `<noscript>` image so the browser does not request them before their section arrives on screen; keep both URLs and alt text in sync when replacing a photo.
+
+Within each 5 × 5 cell, the reveal grows from a center dot through a plus, a 3 × 3 square, and a rounded square before filling the corners. The exact patterns and stage spacing are in `public/js/dither-pattern.js`; the ink formula determines when each cell starts this sequence.
+
+The ink grows along a newly generated branching tree, then thickens sideways to fill the gaps. Branch density and the contrast between fast channels and slow lateral spreading are set in `public/js/ink-field.js`.
+
 The shared 3D viewer is in `public/js/viewer.js` and `public/css/viewer.css`. Keep its pinned library URLs and integrity values together; security headers must permit those exact URLs. Routine content edits do not need changes to the viewer or API.
 
 ## Before handing the site to the next team
