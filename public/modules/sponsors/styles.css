@@ -1,12 +1,45 @@
-/* Sponsors. Keep this module’s responsive rules here too. */
+/* Support us: monthly support, sponsor tiers, other ways to help. Keep this module’s responsive rules here too. */
+.support-section { position: relative; background: radial-gradient(ellipse 70% 50% at 85% 0%, #ff000026, transparent 70%), var(--bg); }
+.support-hero { display: grid; grid-template-columns: 1fr 1fr; gap: 6%; align-items: end; margin-bottom: clamp(44px, 6vw, 72px); }
+.support-hero h2 { font-size: clamp(64px, 11vw, 168px); line-height: .9; text-transform: uppercase; letter-spacing: -.05em; }
+.support-pitch p { color: var(--muted); font-size: 15px; max-width: 46ch; margin-bottom: 28px; }
+.support-pitch .actions { gap: 12px; }
+.support-subscribe { padding: 18px 26px; font-size: 15px; box-shadow: 0 0 0 0 #ff000080; animation: support-pulse 2.4s ease-out infinite; }
+@keyframes support-pulse { 70% { box-shadow: 0 0 0 16px #ff000000; } 100% { box-shadow: 0 0 0 0 #ff000000; } }
+.tier-table-wrap { position: relative; overflow-x: auto; border: 1px solid var(--line); background: var(--surface); }
+.tier-table { width: 100%; min-width: 720px; border-collapse: collapse; font-size: 13px; }
+.tier-table caption { text-align: left; padding: 18px 22px; font-size: 11px; font-weight: 600; letter-spacing: .11em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--line); }
+.tier-table th, .tier-table td { padding: 15px 18px; border-bottom: 1px solid var(--line); text-align: center; }
+.tier-table tbody tr:last-child > * { border-bottom: 0; }
+.tier-table tbody th { text-align: left; font-weight: 600; }
+.tier-table thead th { vertical-align: bottom; font: 800 20px/1.1 Archivo, Arial, sans-serif; text-transform: uppercase; letter-spacing: -.02em; }
+.tier-table thead th:first-child { text-align: left; font: 600 11px Inter, Arial, sans-serif; color: var(--muted); letter-spacing: .08em; }
+.tier-table thead th:last-child, .tier-table td:last-child { background: #ff000014; }
+.tier-table thead th:last-child { box-shadow: inset 0 3px 0 var(--accent); }
+.tier-table small { display: block; margin-top: 6px; font: 500 10px Inter, Arial, sans-serif; text-transform: none; letter-spacing: 0; color: var(--muted); }
+.tier-heat { display: flex; justify-content: center; gap: 2px; margin-bottom: 10px; color: var(--accent); }
+.tier-pepper { width: 12px; height: 30px; rotate: 18deg; }
+.tier-yes { color: var(--accent); font-size: 12px; }
+.tier-no { color: var(--muted); opacity: .5; }
+.tier-swipe { display: none; font-size: 11px; color: var(--muted); margin-bottom: 10px; text-align: right; }
+.tier-table tbody tr:hover > * { background: var(--surface-alt); }
+.tier-table th:first-child { position: sticky; left: 0; background: var(--surface); z-index: 1; }
+.tier-note { font-size: 12px; color: var(--muted); margin-top: 16px; max-width: 80ch; }
+.tier-note a { color: var(--text); text-decoration: underline; text-decoration-color: var(--accent); }
+.support-subtitle { margin: clamp(56px, 7vw, 90px) 0 22px; font-size: 13px; letter-spacing: .11em; text-transform: uppercase; color: var(--muted); }
 .support-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
-.support-grid article { display: flex; flex-direction: column; border: 1px solid var(--line); padding: 28px; }
+.support-grid article { display: flex; flex-direction: column; border: 1px solid var(--line); padding: 28px; background: var(--bg); }
 .support-symbol { font: 400 28px 'ROG', monospace; color: var(--accent); margin-bottom: 30px; }
 .support-grid h3 { font-size: 23px; min-height: 56px; }
 .support-grid p { font-size: 13px; color: var(--muted); margin: 15px 0 30px; }
 .support-grid .button { margin-top: auto; }
 @media (max-width: 800px) {
+  .tier-swipe { display: block; }
+  .support-hero { grid-template-columns: 1fr; gap: 26px; }
   .support-grid { grid-template-columns: 1fr; }
   .support-grid h3 { min-height: 0; }
   .support-symbol { margin-bottom: 20px; }
+}
+@media (max-width: 460px) {
+  .support-subscribe, .support-pitch .button { width: 100%; }
 }

@@ -1,0 +1,31 @@
+/* Who we are: team, mission, FTC, and quick facts. Keep this module’s responsive rules here too. */
+.mission-section .section-heading { align-items: center; }
+.mission-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+.mission-card { border-top: 2px solid var(--accent); padding-top: 24px; }
+.mission-index { font: 400 13px 'ROG', monospace; color: var(--accent); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 18px; }
+.mission-card h3 { font-size: clamp(22px, 2vw, 28px); }
+.mission-card p:not(.mission-index) { color: var(--muted); font-size: 13px; margin-top: 14px; max-width: 46ch; }
+.mission-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: clamp(48px, 6vw, 80px) 0 0; border-block: 1px solid var(--line); }
+.mission-stats > div { display: flex; flex-direction: column-reverse; justify-content: flex-end; gap: 6px; padding: 26px 22px; border-left: 1px solid var(--line); }
+.mission-stats > div:first-child { border-left: 0; padding-left: 0; }
+.mission-stats dd { margin: 0; font: 800 clamp(44px, 5.5vw, 84px)/1 'ROG', Archivo, Arial, sans-serif; letter-spacing: -.05em; color: var(--text); }
+.mission-stats > div:nth-child(odd) dd { color: var(--accent); }
+.mission-stats dt { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; max-width: 22ch; }
+
+/* Circular badge that turns as the page scrolls (--spin is set by js/scroll-fx.js). */
+.heat-badge { position: relative; flex-shrink: 0; width: 150px; height: 150px; display: grid; place-items: center; }
+.heat-badge svg { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(var(--spin, 0deg)); fill: var(--text); font: 700 17px Archivo, Arial, sans-serif; }
+.heat-badge img { width: 48px; height: 48px; image-rendering: pixelated; }
+@media (max-width: 800px) {
+  .mission-grid { grid-template-columns: 1fr; gap: 34px; }
+  .mission-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .mission-stats > div:nth-child(3) { border-left: 0; padding-left: 0; }
+  .mission-stats > div:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .heat-badge { position: absolute; right: 0; top: -10px; width: 110px; height: 110px; }
+  .mission-section .section-heading { position: relative; }
+}
+@media (max-width: 460px) {
+  .heat-badge { width: 86px; height: 86px; top: -30px; }
+  .heat-badge img { width: 32px; height: 32px; }
+  .mission-stats > div { padding: 20px 12px; }
+}

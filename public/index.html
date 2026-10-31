@@ -24,15 +24,32 @@
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <div class="wrap header-inner">
-      <a class="brand" href="#home" aria-label="Peppers Robotics home">PEPPERS<span>19044</span></a>
+      <a class="brand" href="#home" aria-label="Peppers Robotics home"><img class="brand-mark" src="photos/19044.png" alt="" width="32" height="32">PEPPERS<span>19044</span></a>
       <nav id="siteNav" aria-label="Main navigation">
-        <a href="#seasons">Robots</a><a href="#events">Events</a><a href="#sponsors">Sponsors</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a>
+        <a href="#about">About</a><a href="#events">News</a><a href="#showcase">Projects</a><a href="#seasons">Robots</a><a href="#gallery">Memories</a><a href="#contact">Contact</a>
       </nav>
       <div class="header-actions">
         <button class="icon-button" id="themeToggle" type="button" aria-label="Switch to light theme" aria-pressed="false"><span aria-hidden="true">◐</span></button>
-        <a class="button button-accent nav-cta" href="#contact">Get involved <span aria-hidden="true">↗</span></a>
+        <a class="button button-accent nav-cta" href="#sponsors">Support us <span aria-hidden="true">↗</span></a>
         <button class="menu-toggle" id="menuToggle" type="button" aria-controls="siteNav" aria-expanded="false">Menu <span aria-hidden="true">☰</span></button>
       </div>
+    </div>
+    <div class="scroll-progress" data-scroll-progress aria-hidden="true"></div>
+    <!-- Decorative peppers hanging from the header. Change --x (position), --len (string length) or add a class: is-green, is-dark. -->
+    <div class="pepper-garland" aria-hidden="true">
+      <svg class="pepper-defs" width="0" height="0" focusable="false">
+        <symbol id="pepper-shape" viewBox="0 0 40 100">
+          <path d="M21 1c-1 6 1 10 0 16" fill="none" stroke="#1f7a32" stroke-width="3.2" stroke-linecap="round"/>
+          <path d="M10 20c4-8 16-8 20 0-6 3-14 3-20 0z" fill="#2fa14a"/>
+          <path d="M11 21c-7 22-3 49 12 75 2 3 6 2 5-2-5-24 3-49 1-73-6 3-12 3-18 0z" fill="currentColor"/>
+          <path d="M15 28c-3 18-1 35 6 52" fill="none" stroke="#fff" stroke-opacity=".45" stroke-width="2.6" stroke-linecap="round"/>
+        </symbol>
+      </svg>
+      <span class="hanging-pepper" data-pepper style="--x: 7%; --len: 46px;"><span class="pepper-string"></span><svg class="pepper-body" viewBox="0 0 40 100" focusable="false"><use href="#pepper-shape"/></svg></span>
+      <span class="hanging-pepper is-dark" data-pepper style="--x: 23%; --len: 88px;"><span class="pepper-string"></span><svg class="pepper-body" viewBox="0 0 40 100" focusable="false"><use href="#pepper-shape"/></svg></span>
+      <span class="hanging-pepper is-green" data-pepper style="--x: 61%; --len: 62px;"><span class="pepper-string"></span><svg class="pepper-body" viewBox="0 0 40 100" focusable="false"><use href="#pepper-shape"/></svg></span>
+      <span class="hanging-pepper" data-pepper style="--x: 82%; --len: 104px;"><span class="pepper-string"></span><svg class="pepper-body" viewBox="0 0 40 100" focusable="false"><use href="#pepper-shape"/></svg></span>
+      <span class="hanging-pepper is-dark" data-pepper style="--x: 95%; --len: 40px;"><span class="pepper-string"></span><svg class="pepper-body" viewBox="0 0 40 100" focusable="false"><use href="#pepper-shape"/></svg></span>
     </div>
   </header>
 
@@ -45,7 +62,7 @@
         <p class="eyebrow"><span class="status-dot"></span> FTC Team 19044 <span class="eyebrow-divider">/</span> Iași, Romania</p>
         <h1 id="heroTitle">We build<br><span class="accent-text">robots</span> that<br>bring the <img src="photos/heat-gif.gif" alt="heat." width="184" height="75" class="heat-word"></h1>
         <p class="hero-description">We’re Peppers, FTC Team 19044 from Iași. This is what we build, how we test, and the people behind every robot.</p>
-        <div class="actions"><a class="button button-accent" href="#seasons">Explore our robots <span aria-hidden="true">↗</span></a><a class="button button-outline" href="#contact">Become a sponsor <span aria-hidden="true">↗</span></a></div>
+        <div class="actions"><a class="button button-accent" href="#seasons">Explore our robots <span aria-hidden="true">↗</span></a><a class="button button-outline" href="#sponsors">Support us <span aria-hidden="true">↗</span></a></div>
       </div>
       <aside class="hero-build" aria-label="Explore our robot">
         <div class="build-label"><span class="eyebrow">Peppers / Kickathon</span><span class="eyebrow">2026–27</span></div>
@@ -60,10 +77,173 @@
       </aside>
     </section>
 
+    <section class="section wrap mission-section" id="about" aria-labelledby="missionTitle">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow section-number">01 / Who we are</p>
+          <h2 id="missionTitle">Spicy ideas.<br><span class="accent-text">Serious</span> engineering.</h2>
+        </div>
+        <div class="heat-badge" data-scroll-spin aria-hidden="true">
+          <svg viewBox="0 0 200 200" focusable="false">
+            <path id="badgeCircle" d="M100 100m-78 0a78 78 0 1 1 156 0a78 78 0 1 1-156 0" fill="none"/>
+            <text><textPath href="#badgeCircle" textLength="486" lengthAdjust="spacing">BRING THE HEAT • PEPPERS • FTC 19044 • </textPath></text>
+          </svg>
+          <img src="photos/19044.png" alt="" width="32" height="32">
+        </div>
+      </div>
+      <div class="mission-grid">
+        <article class="mission-card">
+          <p class="mission-index">[ Us ]</p>
+          <h3>A team that builds.</h3>
+          <p>Peppers is a student-and-alumni STEM community from Liceul Teoretic de Informatică “Grigore Moisil” in Iași. Mechanical design, electronics, software, and outreach all happen in one workshop.</p>
+        </article>
+        <article class="mission-card">
+          <p class="mission-index">[ Mission ]</p>
+          <h3>Bring the heat. Share it.</h3>
+          <p>We give students room to design, build, break, and rebuild real machines. Then we share what we learn through education, mentoring, and community projects.</p>
+        </article>
+        <article class="mission-card">
+          <p class="mission-index">[ FTC ]</p>
+          <h3>What is FIRST Tech Challenge?</h3>
+          <p>An international robotics competition for students aged 12–18. Each season starts with a new game. Teams design, build, and program a robot to play it, then compete in alliances at regional, national, and world events.</p>
+        </article>
+      </div>
+      <dl class="mission-stats">
+        <div><dt>Rookie year</dt><dd>2020</dd></div>
+        <div><dt>Student contributors</dt><dd>120+</dd></div>
+        <div><dt>Awards &amp; alliance wins</dt><dd>10</dd></div>
+        <div><dt>Trips to FIRST Championship, Houston</dt><dd>2</dd></div>
+      </dl>
+    </section>
+
+    <section class="section wrap" id="events" aria-labelledby="eventsTitle">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow section-number">02 / News</p>
+          <h2 id="eventsTitle">What’s coming<br>up next<span class="accent-text">.</span></h2>
+        </div>
+        <p>Competitions, community days, and workshop news. Here’s where to find us next.</p>
+      </div>
+      <div class="event-controls">
+        <div class="filter-buttons" role="group" aria-label="Filter upcoming events"><button type="button" data-event-filter="all" aria-pressed="true">All events</button><button type="button" data-event-filter="competition" aria-pressed="false">Competition</button><button type="button" data-event-filter="community" aria-pressed="false">Community</button></div>
+        <p class="schedule-note">Draft schedule · dates and venues to be confirmed</p>
+      </div>
+      <div class="events-grid">
+        <article class="event-card" data-event-kind="competition">
+          <div class="event-top"><time datetime="2026-11-14"><strong>14</strong><span>NOV<br>2026</span></time><span class="event-category">Competition</span></div>
+          <h3>Regional<br>Scrimmage #1</h3>
+          <p class="event-location">Iași High School of Computer Science</p>
+          <p class="event-time">09:00–17:00 · Local time</p>
+          <details>
+            <summary>Event details <span aria-hidden="true">+</span></summary>
+            <div class="event-more">
+              <p>A chance to see the robots on the field and follow the team through a day of practice matches.</p>
+              <p>This date and venue are provisional. Attendance and registration details will be added once confirmed.</p>
+              <a class="button button-outline" href="mailto:contact@peppers-robotics.ro?subject=Regional%20Scrimmage%20enquiry">Ask about this event <span aria-hidden="true">↗</span></a>
+            </div>
+          </details>
+        </article>
+        <article class="event-card" data-event-kind="community">
+          <div class="event-top"><time datetime="2026-12-05"><strong>05</strong><span>DEC<br>2026</span></time><span class="event-category">Community</span></div>
+          <h3>Community<br>Open Shop</h3>
+          <p class="event-location">Peppers Robotics HQ</p>
+          <p class="event-time">10:00–14:00 · Local time</p>
+          <details>
+            <summary>Visit information <span aria-hidden="true">+</span></summary>
+            <div class="event-more">
+              <p>Step into the workshop, meet the team, and take a closer look at the build.</p>
+              <p>The date, venue, and visitor arrangements are provisional. RSVP information will appear here when confirmed.</p>
+              <a class="button button-outline" href="mailto:contact@peppers-robotics.ro?subject=Community%20Open%20Shop%20enquiry">Ask about this event <span aria-hidden="true">↗</span></a>
+            </div>
+          </details>
+        </article>
+        <article class="event-card" data-event-kind="competition">
+          <div class="event-top"><time datetime="2027-01-22"><strong>22</strong><span>JAN<br>2027</span></time><span class="event-category">Competition</span></div>
+          <h3>National Qualifier<br>Tournament</h3>
+          <p class="event-location">Bucharest Polyvalenta Hall</p>
+          <p class="event-time">All day</p>
+          <details>
+            <summary>Tournament details <span aria-hidden="true">+</span></summary>
+            <div class="event-more">
+              <p>Follow Peppers into the next stage of competition.</p>
+              <p>This is a provisional listing. The confirmed schedule and any official livestream link will be added here.</p>
+              <a class="button button-outline" href="mailto:contact@peppers-robotics.ro?subject=National%20Qualifier%20enquiry">Ask about this event <span aria-hidden="true">↗</span></a>
+            </div>
+          </details>
+        </article>
+      </div>
+      <p class="filter-status" id="eventFilterStatus" role="status">Showing all 3 events</p>
+    </section>
+
+    <section class="section showcase-section" id="showcase" aria-labelledby="showcaseTitle">
+      <div class="wrap">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow section-number">03 / Beyond the robot</p>
+            <h2 id="showcaseTitle">Projects &amp;<br>awards<span class="accent-text">.</span></h2>
+          </div>
+          <p>What the team does between matches: the programs we run, and what we’ve brought home.</p>
+        </div>
+        <div class="showcase-tabs" role="tablist" aria-label="Projects and awards">
+          <button type="button" role="tab" id="tab-projects" aria-controls="panel-projects" aria-selected="true" data-tab>Projects <span>9</span></button>
+          <button type="button" role="tab" id="tab-awards" aria-controls="panel-awards" aria-selected="false" tabindex="-1" data-tab>Awards <span>10</span></button>
+        </div>
+    
+        <div class="showcase-panel" id="panel-projects" role="tabpanel" tabindex="0" aria-labelledby="tab-projects">
+          <ul class="project-grid">
+            <li class="project-card"><span class="project-tag">Education</span><h3>Peppers STEM Special</h3><p>Hands-on STEM demos for younger students.</p></li>
+            <li class="project-card"><span class="project-tag">Community</span><h3>Dăruiește un robot</h3><p>Robotics, electronics, and programming lessons for under-resourced schools.</p></li>
+            <li class="project-card"><span class="project-tag">Inclusion</span><h3>RoboReach</h3><p>STEM outreach for students with disabilities.</p></li>
+            <li class="project-card"><span class="project-tag">Education</span><h3>LIIS STEM Junior</h3><p>Arduino lessons for middle-school students.</p></li>
+            <li class="project-card"><span class="project-tag">Training</span><h3>House of Rookies</h3><p>Recruitment and first training for new team members.</p></li>
+            <li class="project-card"><span class="project-tag">Training</span><h3>PeppQuest</h3><p>CAD, mechanics, and programming training, finished with an Arduino build challenge.</p></li>
+            <li class="project-card"><span class="project-tag">Media</span><h3>PeppTalks</h3><p>Interviews with students and mentors.</p></li>
+            <li class="project-card"><span class="project-tag">Just for fun</span><h3>PeppStrike</h3><p>A Counter-Strike 2 tournament for Romanian FTC teams.</p></li>
+            <li class="project-card"><span class="project-tag">Event</span><h3>AI vs Human Art</h3><p>An event exploring technology, creativity, and AI.</p></li>
+          </ul>
+        </div>
+    
+        <div class="showcase-panel" id="panel-awards" role="tabpanel" tabindex="0" aria-labelledby="tab-awards">
+          <ol class="award-list">
+            <li><span class="award-year">2025–26</span><div><h3>Sustain Award</h3><p>Istanbul Premier Event · Rumeli Division</p></div></li>
+            <li><span class="award-year">2025–26</span><div><h3>Sustain Award</h3><p>Romania East League Tournament</p></div></li>
+            <li><span class="award-year">2024</span><div><h3>Winning Alliance · 1st team selected</h3><p>East Romania League Tournament</p></div></li>
+            <li><span class="award-year">2024</span><div><h3>Connect Award · 3rd place</h3><p>East Romania League Tournament</p></div></li>
+            <li class="is-major"><span class="award-year">2023</span><div><h3>Semifinalist · Franklin Division</h3><p>FIRST Championship · Houston</p></div></li>
+            <li class="is-major"><span class="award-year">2022</span><div><h3>Motivate Award · 2nd place</h3><p>FIRST Championship · Houston · Franklin Division</p></div></li>
+            <li><span class="award-year">2022</span><div><h3>Inspire Award · 2nd place</h3><p>Romanian National Championship</p></div></li>
+            <li><span class="award-year">2022</span><div><h3>Finalist Alliance · 1st team selected</h3><p>Romanian National Championship</p></div></li>
+            <li><span class="award-year">2022</span><div><h3>Winning Alliance · 1st team selected</h3><p>Bucharest Qualifying Tournament</p></div></li>
+            <li><span class="award-year">2022</span><div><h3>Innovate Award · 2nd place</h3><p>Bucharest Qualifying Tournament</p></div></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sponsor bar. Replace open slots with approved sponsors: copy an <li>, set the link,
+         name (or a logo <img> inside .sponsor-logo), tier, and the one-line info. -->
+    <section class="partners-bar" id="partners" aria-labelledby="partnersTitle">
+      <div class="wrap partners-head">
+        <h2 id="partnersTitle" class="eyebrow">Fuelled by our partners</h2>
+        <a class="text-button" href="#sponsors">Your logo could be here <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="marquee" data-marquee>
+        <ul class="marquee-track">
+          <li><a class="sponsor-chip" href="#about" data-sponsor-tier="Home base"><span class="sponsor-logo">LIIS “Grigore Moisil”</span><span class="sponsor-info">Liceul Teoretic de Informatică “Grigore Moisil”, Iași. Our school and the home of the Peppers workshop.</span></a></li>
+          <li><a class="sponsor-chip is-open" href="#sponsors" data-sponsor-tier="Inferno partner · open"><span class="sponsor-logo">Your logo</span><span class="sponsor-info">Headline partner. Logo on the robot, team shirts, and this site, plus a workshop visit and a season shout-out.</span></a></li>
+          <li><a class="sponsor-chip is-open" href="#sponsors" data-sponsor-tier="Extra hot partner · open"><span class="sponsor-logo">Your logo</span><span class="sponsor-info">Logo on the robot and team shirts, featured posts on our social channels, and a place in this bar.</span></a></li>
+          <li><a class="sponsor-chip is-open" href="#sponsors" data-sponsor-tier="Parts partner · open"><span class="sponsor-logo">Parts &amp; tools</span><span class="sponsor-info">Components, materials, fabrication, or machine time that go straight into the next build.</span></a></li>
+          <li><a class="sponsor-chip is-open" href="#sponsors" data-sponsor-tier="Hot partner · open"><span class="sponsor-logo">Your logo</span><span class="sponsor-info">Logo on this site and in our season thank-you posts.</span></a></li>
+          <li><a class="sponsor-chip is-open" href="#sponsors" data-sponsor-tier="Mentor partner · open"><span class="sponsor-logo">Your team</span><span class="sponsor-info">Engineers and professionals who share time and experience with students in the workshop.</span></a></li>
+          <li><a class="sponsor-chip is-open" href="#sponsors" data-sponsor-tier="Mild supporter · open"><span class="sponsor-logo">Your name</span><span class="sponsor-info">Monthly supporters keep the workshop running between competitions. Every contribution counts.</span></a></li>
+        </ul>
+      </div>
+    </section>
+
     <section class="section wrap" id="seasons" aria-labelledby="seasonsTitle">
       <div class="section-heading">
         <div>
-          <p class="eyebrow section-number">01 / The robot lab</p>
+          <p class="eyebrow section-number">04 / Robot cards</p>
           <h2 id="seasonsTitle">Built. Tested.<br>Built again.</h2>
         </div>
         <p>Open a build, turn a model around, or follow a season from the workshop to the field.</p>
@@ -133,96 +313,85 @@
       </noscript>
     </section>
 
-    <section class="section wrap" id="events" aria-labelledby="eventsTitle">
-      <div class="section-heading">
+    <section class="section media-section" id="gallery" aria-labelledby="galleryTitle">
+      <div class="wrap section-heading">
         <div>
-          <p class="eyebrow section-number">02 / On the calendar</p>
-          <h2 id="eventsTitle">Upcoming events<span class="accent-text">.</span></h2>
+          <p class="eyebrow section-number">05 / Memories</p>
+          <h2 id="galleryTitle">Photos, photos,<br>more photos<span class="accent-text">.</span></h2>
         </div>
-        <p>On the field, in the workshop, and out in the community. Here’s what’s next.</p>
+        <p>Kickoffs, late nights in the workshop, and match days. Open an album to shuffle through, or press play for the team film.</p>
       </div>
-      <div class="event-controls">
-        <div class="filter-buttons" role="group" aria-label="Filter upcoming events"><button type="button" data-event-filter="all" aria-pressed="true">All events</button><button type="button" data-event-filter="competition" aria-pressed="false">Competition</button><button type="button" data-event-filter="community" aria-pressed="false">Community</button></div>
-        <p class="schedule-note">Draft schedule · dates and venues to be confirmed</p>
+      <div class="memory-wall" data-memory-wall>
+        <div class="memory-row" data-drift="-1"><figure class="memory"><img data-viewport-src="2026-2027/KICKOFF1.jpeg" alt="The team at Kickathon" width="2048" height="1152"><noscript><img src="2026-2027/KICKOFF1.jpeg" alt="The team at Kickathon" width="2048" height="1152" loading="lazy"></noscript></figure><figure class="memory"><img data-viewport-src="2026-2027/work.jpeg" alt="Building and testing together" width="2048" height="1536"><noscript><img src="2026-2027/work.jpeg" alt="Building and testing together" width="2048" height="1536" loading="lazy"></noscript></figure><figure class="memory"><img data-viewport-src="2026-2027/GROUP.jpeg" alt="A group photo with Peppers" width="900" height="1600"><noscript><img src="2026-2027/GROUP.jpeg" alt="A group photo with Peppers" width="900" height="1600" loading="lazy"></noscript></figure><figure class="memory"><img data-viewport-src="2026-2027/V1.jpeg" alt="Cristina in the workshop" width="1920" height="1080"><noscript><img src="2026-2027/V1.jpeg" alt="Cristina in the workshop" width="1920" height="1080" loading="lazy"></noscript></figure><figure class="memory"><img data-viewport-src="2026-2027/measure.jpeg" alt="Checking a mechanism’s measurements" width="1640" height="1232"><noscript><img src="2026-2027/measure.jpeg" alt="Checking a mechanism’s measurements" width="1640" height="1232" loading="lazy"></noscript></figure></div>
+        <div class="memory-row" data-drift="1"><figure class="memory"><img data-viewport-src="photos/team-competition.webp" alt="The team together at a robotics competition" width="960" height="720"><noscript><img src="photos/team-competition.webp" alt="The team together at a robotics competition" width="960" height="720" loading="lazy"></noscript></figure><figure class="memory"><img data-viewport-src="2025-2026/LAB1CLEAN.jpg" alt="Inside the Peppers workshop" width="8192" height="6144"><noscript><img src="2025-2026/LAB1CLEAN.jpg" alt="Inside the Peppers workshop" width="8192" height="6144" loading="lazy"></noscript></figure><figure class="memory"><img data-viewport-src="2026-2027/Untitled.png" alt="Peppers: chilli’ng in robotics" width="5000" height="1833"><noscript><img src="2026-2027/Untitled.png" alt="Peppers: chilli’ng in robotics" width="5000" height="1833" loading="lazy"></noscript></figure><figure class="memory"><img data-viewport-src="2025-2026/C1CURAT.jpg" alt="The build space" width="1920" height="1080"><noscript><img src="2025-2026/C1CURAT.jpg" alt="The build space" width="1920" height="1080" loading="lazy"></noscript></figure><figure class="memory"><img data-viewport-src="2025-2026/CAD.png" alt="A robot design in CAD" width="877" height="639"><noscript><img src="2025-2026/CAD.png" alt="A robot design in CAD" width="877" height="639" loading="lazy"></noscript></figure></div>
       </div>
-      <div class="events-grid">
-        <article class="event-card" data-event-kind="competition">
-          <div class="event-top"><time datetime="2026-11-14"><strong>14</strong><span>NOV<br>2026</span></time><span class="event-category">Competition</span></div>
-          <h3>Regional<br>Scrimmage #1</h3>
-          <p class="event-location">Iași High School of Computer Science</p>
-          <p class="event-time">09:00–17:00 · Local time</p>
-          <details>
-            <summary>Event details <span aria-hidden="true">+</span></summary>
-            <div class="event-more">
-              <p>A chance to see the robots on the field and follow the team through a day of practice matches.</p>
-              <p>This date and venue are provisional. Attendance and registration details will be added once confirmed.</p>
-              <a class="button button-outline" href="mailto:contact@peppers-robotics.ro?subject=Regional%20Scrimmage%20enquiry">Ask about this event <span aria-hidden="true">↗</span></a>
-            </div>
-          </details>
-        </article>
-        <article class="event-card" data-event-kind="community">
-          <div class="event-top"><time datetime="2026-12-05"><strong>05</strong><span>DEC<br>2026</span></time><span class="event-category">Community</span></div>
-          <h3>Community<br>Open Shop</h3>
-          <p class="event-location">Peppers Robotics HQ</p>
-          <p class="event-time">10:00–14:00 · Local time</p>
-          <details>
-            <summary>Visit information <span aria-hidden="true">+</span></summary>
-            <div class="event-more">
-              <p>Step into the workshop, meet the team, and take a closer look at the build.</p>
-              <p>The date, venue, and visitor arrangements are provisional. RSVP information will appear here when confirmed.</p>
-              <a class="button button-outline" href="mailto:contact@peppers-robotics.ro?subject=Community%20Open%20Shop%20enquiry">Ask about this event <span aria-hidden="true">↗</span></a>
-            </div>
-          </details>
-        </article>
-        <article class="event-card" data-event-kind="competition">
-          <div class="event-top"><time datetime="2027-01-22"><strong>22</strong><span>JAN<br>2027</span></time><span class="event-category">Competition</span></div>
-          <h3>National Qualifier<br>Tournament</h3>
-          <p class="event-location">Bucharest Polyvalenta Hall</p>
-          <p class="event-time">All day</p>
-          <details>
-            <summary>Tournament details <span aria-hidden="true">+</span></summary>
-            <div class="event-more">
-              <p>Follow Peppers into the next stage of competition.</p>
-              <p>This is a provisional listing. The confirmed schedule and any official livestream link will be added here.</p>
-              <a class="button button-outline" href="mailto:contact@peppers-robotics.ro?subject=National%20Qualifier%20enquiry">Ask about this event <span aria-hidden="true">↗</span></a>
-            </div>
-          </details>
-        </article>
-      </div>
-      <p class="filter-status" id="eventFilterStatus" role="status">Showing all 3 events</p>
+      <div class="wrap album-grid"><button type="button" class="album-button" data-open-album="workshop"><span class="album-icon" aria-hidden="true">[ 01 ]</span><span><span class="eyebrow">Photos / The build space</span><strong>Inside the workshop</strong></span><span aria-hidden="true">↗</span></button><button type="button" class="album-button" data-open-album="team"><span class="album-icon" aria-hidden="true">[ 02 ]</span><span><span class="eyebrow">Photos / The people</span><strong>Life with Peppers</strong></span><span aria-hidden="true">↗</span></button><button type="button" class="album-button" data-open-film><span class="album-icon" aria-hidden="true">[ ▶ ]</span><span><span class="eyebrow">Video / The team film</span><strong>Peppers in motion</strong></span><span aria-hidden="true">↗</span></button></div>
     </section>
 
-    <section class="section wrap" id="sponsors" aria-labelledby="sponsorsTitle">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow section-number">03 / Back the next build</p>
-          <h2 id="sponsorsTitle">More possibilities.<br>With you in our corner.</h2>
+    <section class="section support-section" id="sponsors" aria-labelledby="sponsorsTitle">
+      <div class="wrap">
+        <div class="support-hero">
+          <div>
+            <p class="eyebrow section-number">06 / Support us</p>
+            <h2 id="sponsorsTitle">Feed the<br><span class="accent-text">fire.</span></h2>
+          </div>
+          <div class="support-pitch">
+            <p>Every part, tool, and trip to a competition is paid for by people who believe in what students can build. Back Peppers once, every month, or as a partner.</p>
+            <div class="actions">
+              <!-- Monthly support: replace this href with the subscription/donation page link (Patreon, Stripe, Revolut, bank page…). -->
+              <a class="button button-accent support-subscribe" href="mailto:contact@peppers-robotics.ro?subject=Monthly%20support%20for%20Peppers" data-subscribe>Become a monthly supporter <span aria-hidden="true">↗</span></a>
+              <a class="button button-outline" href="mailto:contact@peppers-robotics.ro?subject=Sponsoring%20Peppers%20Robotics">Become a sponsor <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
         </div>
-        <p>Great ideas need parts, people, and a place to happen. There’s more than one way to help.</p>
-      </div>
-      <div class="support-grid">
-        <article><span class="support-symbol" aria-hidden="true">[ + ]</span>
-          <h3>Parts & materials</h3>
-          <p>Help turn the next design into a working build with components, materials, or funding.</p>
-          <a class="button button-outline" href="mailto:contact@peppers-robotics.ro?subject=Sponsoring%20Peppers%20Robotics">Support a build <span aria-hidden="true">↗</span></a>
-        </article>
-        <article><span class="support-symbol" aria-hidden="true">[ ↗ ]</span>
-          <h3>Knowledge & mentorship</h3>
-          <p>Share your experience with students working through mechanical, electrical, or software challenges.</p>
-          <a class="button button-outline" href="mailto:contact@peppers-robotics.ro?subject=Mentoring%20Peppers%20Robotics">Explore mentoring <span aria-hidden="true">↗</span></a>
-        </article>
-        <article><span class="support-symbol" aria-hidden="true">[ ⌁ ]</span>
-          <h3>Space & equipment</h3>
-          <p>Give ideas room to grow with workshop space, tools, fabrication, or equipment.</p>
-          <a class="button button-outline" href="mailto:contact@peppers-robotics.ro?subject=Workshop%20space%20and%20equipment%20for%20Peppers">See how to help <span aria-hidden="true">↗</span></a>
-        </article>
+    
+        <p class="tier-swipe" aria-hidden="true">Swipe to compare →</p>
+        <!-- Sponsor benefits. Proposal for the team to confirm; edit rows freely. -->
+        <div class="tier-table-wrap" tabindex="0" role="region" aria-labelledby="tierCaption">
+          <table class="tier-table">
+            <caption id="tierCaption">Sponsor benefits by heat level</caption>
+            <thead>
+              <tr><th scope="col">What you get</th><th scope="col"><span class="tier-heat" aria-hidden="true"><svg class="tier-pepper" viewBox="0 0 40 100" focusable="false"><use href="#pepper-shape"/></svg></span>Mild<small>Individuals, parents &amp; alumni</small></th><th scope="col"><span class="tier-heat" aria-hidden="true"><svg class="tier-pepper" viewBox="0 0 40 100" focusable="false"><use href="#pepper-shape"/></svg><svg class="tier-pepper" viewBox="0 0 40 100" focusable="false"><use href="#pepper-shape"/></svg></span>Hot<small>Local businesses</small></th><th scope="col"><span class="tier-heat" aria-hidden="true"><svg class="tier-pepper" viewBox="0 0 40 100" focusable="false"><use href="#pepper-shape"/></svg><svg class="tier-pepper" viewBox="0 0 40 100" focusable="false"><use href="#pepper-shape"/></svg><svg class="tier-pepper" viewBox="0 0 40 100" focusable="false"><use href="#pepper-shape"/></svg></span>Extra hot<small>Companies</small></th><th scope="col"><span class="tier-heat" aria-hidden="true"><svg class="tier-pepper" viewBox="0 0 40 100" focusable="false"><use href="#pepper-shape"/></svg><svg class="tier-pepper" viewBox="0 0 40 100" focusable="false"><use href="#pepper-shape"/></svg><svg class="tier-pepper" viewBox="0 0 40 100" focusable="false"><use href="#pepper-shape"/></svg><svg class="tier-pepper" viewBox="0 0 40 100" focusable="false"><use href="#pepper-shape"/></svg></span>Inferno<small>Headline partner</small></th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Thank-you post on our social channels</th><td><span class="tier-yes" aria-hidden="true">●</span><span class="visually-hidden">Included</span></td><td><span class="tier-yes" aria-hidden="true">●</span><span class="visually-hidden">Included</span></td><td><span class="tier-yes" aria-hidden="true">●</span><span class="visually-hidden">Included</span></td><td><span class="tier-yes" aria-hidden="true">●</span><span class="visually-hidden">Included</span></td></tr>
+              <tr><th scope="row">Season updates from the team</th><td><span class="tier-yes" aria-hidden="true">●</span><span class="visually-hidden">Included</span></td><td><span class="tier-yes" aria-hidden="true">●</span><span class="visually-hidden">Included</span></td><td><span class="tier-yes" aria-hidden="true">●</span><span class="visually-hidden">Included</span></td><td><span class="tier-yes" aria-hidden="true">●</span><span class="visually-hidden">Included</span></td></tr>
+              <tr><th scope="row">Place in the sponsor bar on this site</th><td>Name</td><td>Logo</td><td>Logo</td><td>Large logo</td></tr>
+              <tr><th scope="row">Logo on team shirts</th><td><span class="tier-no" aria-hidden="true">–</span><span class="visually-hidden">Not included</span></td><td><span class="tier-yes" aria-hidden="true">●</span><span class="visually-hidden">Included</span></td><td><span class="tier-yes" aria-hidden="true">●</span><span class="visually-hidden">Included</span></td><td><span class="tier-yes" aria-hidden="true">●</span><span class="visually-hidden">Included</span></td></tr>
+              <tr><th scope="row">Logo on the robot</th><td><span class="tier-no" aria-hidden="true">–</span><span class="visually-hidden">Not included</span></td><td><span class="tier-no" aria-hidden="true">–</span><span class="visually-hidden">Not included</span></td><td><span class="tier-yes" aria-hidden="true">●</span><span class="visually-hidden">Included</span></td><td><span class="tier-yes" aria-hidden="true">●</span><span class="visually-hidden">Included</span></td></tr>
+              <tr><th scope="row">Featured posts about your support</th><td><span class="tier-no" aria-hidden="true">–</span><span class="visually-hidden">Not included</span></td><td><span class="tier-no" aria-hidden="true">–</span><span class="visually-hidden">Not included</span></td><td><span class="tier-yes" aria-hidden="true">●</span><span class="visually-hidden">Included</span></td><td><span class="tier-yes" aria-hidden="true">●</span><span class="visually-hidden">Included</span></td></tr>
+              <tr><th scope="row">Logo on our pit banner at competitions</th><td><span class="tier-no" aria-hidden="true">–</span><span class="visually-hidden">Not included</span></td><td><span class="tier-no" aria-hidden="true">–</span><span class="visually-hidden">Not included</span></td><td><span class="tier-no" aria-hidden="true">–</span><span class="visually-hidden">Not included</span></td><td><span class="tier-yes" aria-hidden="true">●</span><span class="visually-hidden">Included</span></td></tr>
+              <tr><th scope="row">Workshop visit and robot demo</th><td><span class="tier-no" aria-hidden="true">–</span><span class="visually-hidden">Not included</span></td><td><span class="tier-no" aria-hidden="true">–</span><span class="visually-hidden">Not included</span></td><td><span class="tier-no" aria-hidden="true">–</span><span class="visually-hidden">Not included</span></td><td><span class="tier-yes" aria-hidden="true">●</span><span class="visually-hidden">Included</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="tier-note">Every partnership is tailored. Contribution levels are agreed together; write to <a href="mailto:contact@peppers-robotics.ro">contact@peppers-robotics.ro</a> and we’ll send the full sponsorship pack.</p>
+    
+        <h3 class="support-subtitle">Other ways to help</h3>
+        <div class="support-grid">
+          <article><span class="support-symbol" aria-hidden="true">[ + ]</span>
+            <h3>Parts &amp; materials</h3>
+            <p>Help turn the next design into a working build with components, materials, or funding.</p>
+            <a class="button button-outline" href="mailto:contact@peppers-robotics.ro?subject=Parts%20and%20materials%20for%20Peppers">Support a build <span aria-hidden="true">↗</span></a>
+          </article>
+          <article><span class="support-symbol" aria-hidden="true">[ ↗ ]</span>
+            <h3>Knowledge &amp; mentorship</h3>
+            <p>Share your experience with students working through mechanical, electrical, or software challenges.</p>
+            <a class="button button-outline" href="mailto:contact@peppers-robotics.ro?subject=Mentoring%20Peppers%20Robotics">Explore mentoring <span aria-hidden="true">↗</span></a>
+          </article>
+          <article><span class="support-symbol" aria-hidden="true">[ ⌁ ]</span>
+            <h3>Space &amp; equipment</h3>
+            <p>Give ideas room to grow with workshop space, tools, fabrication, or equipment.</p>
+            <a class="button button-outline" href="mailto:contact@peppers-robotics.ro?subject=Workshop%20space%20and%20equipment%20for%20Peppers">See how to help <span aria-hidden="true">↗</span></a>
+          </article>
+        </div>
       </div>
     </section>
 
     <section class="section join-section" id="get-involved" aria-labelledby="joinTitle">
       <div class="wrap join-grid">
         <div>
-          <p class="eyebrow section-number">04 / About Peppers</p>
+          <p class="eyebrow section-number">07 / Questions</p>
           <h2 id="joinTitle">A few things<br>to know.</h2>
           <p class="section-intro">Information about the team, visits, and supporting our work.</p>
           <a class="button button-accent" href="mailto:contact@peppers-robotics.ro">Email Peppers <span aria-hidden="true">↗</span></a>
@@ -268,21 +437,10 @@
       </div>
     </section>
 
-    <section class="section wrap media-section" id="gallery" aria-labelledby="galleryTitle">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow section-number">05 / Behind the scenes</p>
-          <h2 id="galleryTitle">Take a closer look.</h2>
-        </div>
-        <p>Open an album to shuffle through the photos, or press play for the team film.</p>
-      </div>
-      <div class="album-grid"><button type="button" class="album-button" data-open-album="workshop"><span class="album-icon" aria-hidden="true">[ 01 ]</span><span><span class="eyebrow">Photos / The build space</span><strong>Inside the workshop</strong></span><span aria-hidden="true">↗</span></button><button type="button" class="album-button" data-open-album="team"><span class="album-icon" aria-hidden="true">[ 02 ]</span><span><span class="eyebrow">Photos / The people</span><strong>Life with Peppers</strong></span><span aria-hidden="true">↗</span></button><button type="button" class="album-button" data-open-film><span class="album-icon" aria-hidden="true">[ ▶ ]</span><span><span class="eyebrow">Video / The team film</span><strong>Peppers in motion</strong></span><span aria-hidden="true">↗</span></button></div>
-    </section>
-
     <section class="section contact-section" id="contact" aria-labelledby="contactTitle">
       <div class="wrap contact-inner">
         <div>
-          <p class="eyebrow">Build something with us</p>
+          <p class="eyebrow">08 / Contact</p>
           <h2 id="contactTitle">The next chapter.<br>Let’s build it.</h2>
         </div>
         <div>
@@ -295,7 +453,7 @@
     </section>
   </main>
   <footer class="wrap site-footer">
-    <div class="footer-team"><a class="brand" href="#home">PEPPERS<span>19044</span></a>
+    <div class="footer-team"><a class="brand footer-brand" href="#home"><img class="brand-mark" src="photos/19044.png" alt="" width="32" height="32">PEPPERS<span>19044</span></a>
       <h2>More than robots.<br>We’re building tomorrow.</h2>
       <p>Peppers Robotics is a student-and-alumni STEM community and FIRST Tech Challenge team from Iași, Romania, based at Liceul Teoretic de Informatică “Grigore Moisil”.</p>
       <p>Mechanical design, electronics, software, and outreach come together in our workshop. Beyond competition, we share robotics through education, mentoring, and community activities.</p>
@@ -316,7 +474,7 @@
     </div>
     <div>
       <h3>Explore Peppers</h3>
-      <nav aria-label="Footer navigation"><a href="#seasons">Robots</a><a href="#events">Upcoming events</a><a href="#sponsors">Support us</a><a href="#gallery">Media room</a><a href="#get-involved">Get involved</a></nav>
+      <nav aria-label="Footer navigation"><a href="#about">Who we are</a><a href="#events">News &amp; events</a><a href="#showcase">Projects &amp; awards</a><a href="#seasons">Robots</a><a href="#gallery">Memories</a><a href="#sponsors">Support us</a><a href="#get-involved">FAQ</a></nav>
     </div>
     <div class="footer-connect">
       <h3>Stay connected</h3>

@@ -77,7 +77,8 @@ export function initDitherReveals() {
   const candidates = [...document.querySelectorAll([
     '.opening-photo', '.hero-copy > *', '.hero-build', '.section-heading > *',
     '.season-card', '.event-controls', '.event-card', '.support-grid > article',
-    '.join-grid > div', '.album-button', '.contact-section', '.site-footer > div'
+    '.join-grid > div', '.album-button', '.contact-section', '.site-footer > div',
+    '.mission-card', '.mission-stats', '.project-card', '.award-list', '.support-hero > *', '.tier-table-wrap'
   ].join(','))];
   const selected = new Set(candidates);
   const targets = candidates.filter(element => {

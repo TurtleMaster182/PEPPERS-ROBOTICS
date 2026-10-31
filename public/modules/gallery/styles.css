@@ -9,3 +9,18 @@
 @media (max-width: 800px) {
   .album-grid { grid-template-columns: 1fr; }
 }
+
+/* Memory wall: two rows that drift in opposite directions with scroll (modules/gallery/index.js). */
+.memory-wall { display: grid; gap: 16px; margin-bottom: 38px; overflow: hidden; padding-block: 12px; }
+.memory-row { display: flex; gap: 16px; width: max-content; transform: translateX(var(--drift, 0px)); will-change: transform; }
+.memory-row[data-drift="-1"] { margin-left: calc(var(--gutter) * -1); }
+.memory-row[data-drift="1"] { margin-left: -260px; }
+.memory { flex: none; height: clamp(170px, 20vw, 270px); background: var(--surface-alt); border: 1px solid var(--line); padding: 8px; transition: transform .3s ease, border-color .3s; }
+.memory:nth-child(odd) { rotate: -1.2deg; }
+.memory:nth-child(even) { rotate: 1deg; }
+.memory:hover { transform: scale(1.04); rotate: 0deg; border-color: var(--accent); z-index: 1; position: relative; }
+.memory img { height: 100%; width: auto; object-fit: cover; }
+@media (max-width: 600px) {
+  .memory-wall, .memory-row { gap: 10px; }
+  .memory { padding: 5px; }
+}
