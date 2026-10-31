@@ -95,9 +95,9 @@ test('sponsor bar, benefits table, and showcase counts are consistent', async ()
   assert.ok(chips.length >= 3, 'the sponsor bar needs enough items to scroll');
   assert.equal(chips.length, (html.match(/class="sponsor-chip/g) || []).length, 'every sponsor needs a tier, name, and info line');
   const table = html.match(/<table class="tier-table">([\s\S]+?)<\/table>/)[1];
-  const tiers = (table.match(/<thead>[\s\S]+?<\/thead>/)[0].match(/<th scope="col">/g) || []).length - 1;
+  const tiers = (table.match(/<thead>[\s\S]+?<\/thead>/)[0].match(/<th scope="col"/g) || []).length - 1;
   for (const row of table.match(/<tr><th scope="row">.+?<\/tr>/g)) assert.equal((row.match(/<td>/g) || []).length, tiers);
-  assert.match(html, /data-subscribe/);
+  assert.match(html, /id="newsletter"[\s\S]+?data-newsletter/);
   const projects = (html.match(/class="project-card"/g) || []).length;
   const awards = html.match(/<ol class="award-list">([\s\S]+?)<\/ol>/)[1].match(/<li/g).length;
   assert.match(html, new RegExp(`Projects <span>${projects}</span>`));

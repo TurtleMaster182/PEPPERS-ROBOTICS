@@ -31,18 +31,19 @@ Edit `public/modules/events/section.html`. Each `article.event-card` contains it
 Edit `public/modules/partners/section.html`. Each `<li>` holds one `a.sponsor-chip`:
 
 - `href` is where the chip leads (the sponsor's website, or `#sponsors`).
-- `data-sponsor-tier` is the small red label on the info card, e.g. `Inferno partner`.
+- `data-sponsor-tier` is the small red label on the info card, e.g. `Gold sponsor`.
 - `.sponsor-logo` holds the name, or an `<img src="photos/sponsor.png" alt="Sponsor name">` logo.
 - `.sponsor-info` is the one line shown on hover (and read by screen readers).
 
 Remove the class `is-open` once a slot belongs to a real sponsor; open slots have dashed borders. Use approved sponsor information only. The list is copied automatically for the endless scroll, so add each sponsor once. External logo images must be stored under `public/`, because the security headers only allow local images.
 
-## Support us: monthly link and benefits table
+## Support us: sponsor tiers and newsletter
 
 In `public/modules/sponsors/section.html`:
 
-- **Monthly support button** (`data-subscribe`): replace its `href` with the real subscription or donation page (Patreon, Stripe, Revolut, bank page…). Until then it opens an email.
-- **Benefits table**: one `<tr>` per benefit, one cell per tier (Mild, Hot, Extra hot, Inferno). Use the existing "Included"/"Not included" cells or plain text. Every row must have one cell per tier; `npm test` checks this. The tiers are a proposal — confirm them with the team and add contribution amounts if you want them public.
+- **Benefits table**: tiers are Bronze (over €500), Silver (over €1,500), Gold (over €3,000) and Diamond (over €5,000). One `<tr>` per benefit, one cell per tier, using the existing "Included"/"Not included" cells. Every row must have one cell per tier; `npm test` checks this. Tier colors are set in `styles.css` (`.tier-bronze` … `.tier-diamond`).
+- **Newsletter button** (`data-newsletter`, under the table): replace its `href` with the newsletter signup link (Mailchimp, Substack, Google Form…). Until then it opens a pre-filled email. Keep the `newsletter` id; the “Subscribe to the newsletter” button at the top of the section links to it.
+- Keep the sponsor bar's open slots (`public/modules/partners/section.html`) in step with the tiers.
 
 ## Projects and awards
 

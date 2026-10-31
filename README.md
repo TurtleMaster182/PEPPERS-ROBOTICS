@@ -31,7 +31,7 @@ Start with [MAINTAINING.md](MAINTAINING.md) for common editing tasks and the han
 | `public/modules/partners/` | Auto-scrolling sponsor bar with hover/tap info cards |
 | `public/modules/seasons/` | 04 Robot cards and inline model loading |
 | `public/modules/gallery/` | 05 Memories: drifting photo wall, album buttons, team film |
-| `public/modules/sponsors/` | 06 Support us: monthly support button, sponsor benefits table, other ways to help |
+| `public/modules/sponsors/` | 06 Support us: sponsor tiers table, newsletter signup, other ways to help |
 | `public/modules/about/` | 07 Expandable FAQ answers |
 | `public/modules/contact/` | Contact address, social links, and contact area |
 | `public/modules/footer/` | Footer copy, links, and copyright year |
