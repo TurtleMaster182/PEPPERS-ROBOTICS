@@ -13,9 +13,14 @@ img[data-viewport-src] { visibility: hidden; }
   .dither-pending, .dither-running { opacity: 1; translate: none; mask-image: none; }
 }
 @media (prefers-reduced-motion: no-preference) {
-  .dither-boot :is(.opening-photo, .hero-copy > *, .hero-build, .section-heading > *, .season-card, .event-controls, .event-card, .support-grid > article, .join-grid > div, .album-button, .contact-section, .site-footer > div) { opacity: 0; }
+  .dither-boot :is(.opening-photo, .hero-copy > *, .hero-build, .section-heading > *, .season-card, .event-controls, .event-card, .support-grid > article, .join-grid > div, .album-button, .contact-section, .site-footer > div, .mission-card, .mission-stats, .project-card, .award-list, .support-hero > *, .tier-table-wrap) { opacity: 0; }
 }
 
 /* Liquid glass photos (js/liquid-glass.js). The filter is sized per photo; the corner radius is read from here. */
 /*.liquid-glass { border-radius: 22px; }
 .liquid-glass-defs { position: absolute; width: 0; height: 0; overflow: hidden; }*/
+
+/* Pixel flames along the bottom of the screen (js/heat-flames.js). */
+.heat-flames { position: fixed; left: 0; bottom: 0; width: 100%; z-index: 15; image-rendering: pixelated; pointer-events: none; mix-blend-mode: screen; }
+:root.light-mode .heat-flames { mix-blend-mode: normal; opacity: .9; }
+body.dialog-open .heat-flames { display: none; }

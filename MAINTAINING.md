@@ -26,7 +26,31 @@ Edit `public/modules/events/section.html`. Each `article.event-card` contains it
 
 `data-event-kind` must match a `data-event-filter` button (`competition` or `community`). If you add a category, add a matching filter too. Update the initial `eventFilterStatus` count when adding or removing cards. Keep the draft notice until the schedule is confirmed. Put confirmed registration or livestream links inside the event details.
 
+## Add a sponsor to the sponsor bar
+
+Edit `public/modules/partners/section.html`. Each `<li>` holds one `a.sponsor-chip`:
+
+- `href` is where the chip leads (the sponsor's website, or `#sponsors`).
+- `data-sponsor-tier` is the small red label on the info card, e.g. `Inferno partner`.
+- `.sponsor-logo` holds the name, or an `<img src="photos/sponsor.png" alt="Sponsor name">` logo.
+- `.sponsor-info` is the one line shown on hover (and read by screen readers).
+
+Remove the class `is-open` once a slot belongs to a real sponsor; open slots have dashed borders. Use approved sponsor information only. The list is copied automatically for the endless scroll, so add each sponsor once. External logo images must be stored under `public/`, because the security headers only allow local images.
+
+## Support us: monthly link and benefits table
+
+In `public/modules/sponsors/section.html`:
+
+- **Monthly support button** (`data-subscribe`): replace its `href` with the real subscription or donation page (Patreon, Stripe, Revolut, bank page…). Until then it opens an email.
+- **Benefits table**: one `<tr>` per benefit, one cell per tier (Mild, Hot, Extra hot, Inferno). Use the existing "Included"/"Not included" cells or plain text. Every row must have one cell per tier; `npm test` checks this. The tiers are a proposal — confirm them with the team and add contribution amounts if you want them public.
+
+## Projects and awards
+
+`public/modules/showcase/section.html` has one `li.project-card` per program and one `li` per award in `ol.award-list`. Update the counts in the tab buttons (`Projects <span>9</span>`) when adding or removing items; tests check them. Awards should match `achievements` in `lib/team-info.mjs`, so the Q&A bot stays in step. Add `class="is-major"` to an award to give it a star.
+
 ## Change gallery photos or the film
+
+The photo wall at the top of Memories is two `div.memory-row` rows in `public/modules/gallery/section.html`. Copy a `figure.memory` to add a photo; keep its `data-viewport-src`, `<noscript>` image, size, and alt text in sync. Rows drift in opposite directions while scrolling (`public/modules/gallery/index.js`).
 
 Album buttons live in `public/modules/gallery/section.html`. Each `data-open-album` matches a key in `public/data/albums.json`; add, remove, or reorder that entry's `media` array to update its photo stack.
 
@@ -48,6 +72,14 @@ The film's source and poster are set in the `[data-open-film]` handler in `publi
 5. Add navigation links where appropriate. Run the tests and build.
 
 ## Visual effects and shared code
+
+Scroll effects:
+
+- **Flames** (`public/js/heat-flames.js`): embers at the top of the page, building slowly while reading, then a full fire once the footer is on screen. Fast scrolling fans them briefly. Change how strong they get in `flameIntensity`, how tall in `ROWS`, colors in `STOPS`. The footer has extra bottom padding so its text sits above the fire.
+- **Hanging peppers** (markup in `public/modules/header/section.html`, physics in `public/js/hanging-peppers.js`): move a pepper with `--x`, change its string with `--len`, recolor with `is-dark` or `is-green`. Scrolling and hovering swing them, a click spins them. Strings shorten as the page scrolls, and tucked peppers ignore clicks.
+- **Progress line and badge** (`public/js/scroll-fx.js`): the red line under the header and the rotating “Bring the heat” badge in Who we are.
+
+All of these stop moving for visitors who prefer reduced motion.
 
 Reveal and liquid-glass effects start at the end of `public/js/main.js` (the gallery photo burn starts from `public/js/photo-deck.js`). Remove the relevant initializer call and import there to disable an effect. All respect the visitor's reduced-motion preference. Their CSS is in `public/css/effects.css`.
 

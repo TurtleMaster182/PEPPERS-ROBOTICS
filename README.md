@@ -23,13 +23,16 @@ Start with [MAINTAINING.md](MAINTAINING.md) for common editing tasks and the han
 
 | Location | What to edit there |
 | --- | --- |
-| `public/modules/header/` | Navigation, mobile menu, and theme button |
+| `public/modules/header/` | Navigation, mobile menu, theme button, scroll progress line, and hanging peppers |
 | `public/modules/hero/` | Opening workshop photo, headline, and featured robot |
-| `public/modules/seasons/` | Robot archive cards and inline model loading |
-| `public/modules/events/` | Event listings and category filters |
-| `public/modules/sponsors/` | Ways to support the team |
-| `public/modules/about/` | Team information and expandable FAQ answers |
-| `public/modules/gallery/` | Album buttons and the team film button |
+| `public/modules/mission/` | 01 Who we are: team, mission, what FTC is, quick facts, spinning badge |
+| `public/modules/events/` | 02 News: event listings and category filters |
+| `public/modules/showcase/` | 03 Projects (outreach programs) and awards, in two tabs |
+| `public/modules/partners/` | Auto-scrolling sponsor bar with hover/tap info cards |
+| `public/modules/seasons/` | 04 Robot cards and inline model loading |
+| `public/modules/gallery/` | 05 Memories: drifting photo wall, album buttons, team film |
+| `public/modules/sponsors/` | 06 Support us: monthly support button, sponsor benefits table, other ways to help |
+| `public/modules/about/` | 07 Expandable FAQ answers |
 | `public/modules/contact/` | Contact address, social links, and contact area |
 | `public/modules/footer/` | Footer copy, links, and copyright year |
 | `public/modules/details/` | Shared popup for robot galleries, albums, and film |
@@ -43,6 +46,9 @@ Start with [MAINTAINING.md](MAINTAINING.md) for common editing tasks and the han
 | `public/js/theme.js`, `public/js/reveal-boot.js` | Tiny scripts that run before the page paints |
 | `public/js/viewer.js`, `public/js/photo-deck.js` | Shared 3D viewer and photo stack behavior |
 | `public/js/dither-reveal.js`, `public/js/photo-burn.js`, `public/js/liquid-glass.js` | Shared visual effects |
+| `public/js/scroll-fx.js` | Shared scroll reader, progress line, and spinning badge |
+| `public/js/heat-flames.js` | Pixel flames at the bottom of the screen that grow with scroll |
+| `public/js/hanging-peppers.js` | Swinging peppers under the header |
 | `public/chat-widget.js`, `public/chat-widget.css` | Q&A widget |
 | `lib/team-info.mjs` | Team facts supplied to the Q&A bot |
 | `api/chat.js`, `lib/chat-security.mjs` | Chat endpoint and request validation |

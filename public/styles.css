@@ -4,8 +4,11 @@
 @import url("css/components.css");
 @import url("modules/header/styles.css");
 @import url("modules/hero/styles.css");
-@import url("modules/seasons/styles.css");
+@import url("modules/mission/styles.css");
 @import url("modules/events/styles.css");
+@import url("modules/showcase/styles.css");
+@import url("modules/partners/styles.css");
+@import url("modules/seasons/styles.css");
 @import url("modules/sponsors/styles.css");
 @import url("modules/about/styles.css");
 @import url("modules/gallery/styles.css");

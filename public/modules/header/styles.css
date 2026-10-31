@@ -24,3 +24,34 @@
 @media (max-width: 760px) {
   .js .site-header nav:not(.is-open) { display: none; }
 }
+
+/* Brand mark: the pixel pepper logo, kept crisp. */
+.brand { align-items: center; }
+.brand-mark { width: 28px; height: 28px; image-rendering: pixelated; align-self: center; }
+@media (max-width: 760px) {
+  .brand-mark { width: 24px; height: 24px; }
+}
+
+/* Reading progress along the bottom edge of the header. */
+.scroll-progress { position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; background: var(--accent); transform-origin: left; transform: scaleX(var(--progress, 0)); pointer-events: none; }
+
+/* Hanging peppers. Strings are drawn here; the swing is set by js/hanging-peppers.js. */
+.pepper-garland { position: absolute; left: 0; right: 0; top: 100%; height: 0; pointer-events: none; }
+.pepper-defs { position: absolute; }
+.hanging-pepper { position: absolute; top: 0; left: var(--x); display: flex; flex-direction: column; align-items: center; transform-origin: 50% 0; transform: rotate(var(--swing, 0rad)); color: #ff1a1a; will-change: transform; }
+.hanging-pepper.is-dark { color: #b80000; }
+.hanging-pepper.is-green { color: #2e9e45; }
+.pepper-string { width: 1px; height: var(--string, var(--len)); background: var(--muted); opacity: .7; }
+.pepper-body { width: 22px; height: 55px; margin-top: -3px; pointer-events: auto; cursor: grab; filter: drop-shadow(0 6px 6px #0006); }
+.hanging-pepper:nth-child(3n) .pepper-body { width: 18px; height: 45px; }
+.hanging-pepper.is-hot .pepper-body { animation: pepper-sizzle .7s ease-out; }
+@keyframes pepper-sizzle {
+  0% { filter: drop-shadow(0 0 0 #ff0000) brightness(1); }
+  30% { filter: drop-shadow(0 0 14px #ff6a00) brightness(1.5); }
+  100% { filter: drop-shadow(0 6px 6px #0006) brightness(1); }
+}
+@media (max-width: 760px) {
+  .hanging-pepper:nth-child(3), .hanging-pepper:nth-child(5) { display: none; }
+  .pepper-body { width: 17px; height: 42px; }
+}
+.pepper-garland.is-tucked .pepper-body { pointer-events: none; }
