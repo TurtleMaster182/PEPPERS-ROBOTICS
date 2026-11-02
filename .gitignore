@@ -1,4 +1,9 @@
 *.mp4
+# Small looping clips that replace the old GIFs (each under 2 MB).
+!public/2026-2027/output.mp4
+!public/2026-2027/crash.mp4
+!public/2026-2027/dance.mp4
+!public/2026-2027/score.mp4
 
 .env
 .env.*

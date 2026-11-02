@@ -95,9 +95,19 @@ export function initDetails() {
       gallery.className = 'detail-gallery';
       season.media.forEach(item => {
         const figure = document.createElement('figure');
-        const media = document.createElement(item.type === 'video' ? 'video' : 'img');
+        const isVideo = item.type === 'video' || item.type === 'clip';
+        const media = document.createElement(isVideo ? 'video' : 'img');
         media.src = item.src;
-        if (item.type === 'video') {
+        if (item.type === 'clip') {
+          // Short silent loops (formerly GIFs): play like an animated image.
+          media.muted = true;
+          media.loop = true;
+          media.autoplay = true;
+          media.playsInline = true;
+          media.preload = 'metadata';
+          media.setAttribute('aria-label', item.alt);
+          if (item.poster) media.poster = item.poster;
+        } else if (item.type === 'video') {
           media.controls = true;
           media.playsInline = true;
           media.preload = 'none';
@@ -131,7 +141,9 @@ export function initDetails() {
   }
 
   function openSeason(card) {
-    openGallery('seasons', card.dataset.seasonId, card.querySelector('h3').textContent, card.querySelector('.season-year').textContent, card.querySelector('.season-description').textContent);
+    // Every card part is optional, so a card without a year badge still opens.
+    const text = selector => card.querySelector(selector)?.textContent.trim() || '';
+    openGallery('seasons', card.dataset.seasonId, text('h3'), text('.season-year') || text('.eyebrow'), text('.season-description'));
   }
   document.querySelectorAll('[data-open-season]').forEach(button => {
     button.addEventListener('click', () => openSeason(button.closest('[data-season-id]')));

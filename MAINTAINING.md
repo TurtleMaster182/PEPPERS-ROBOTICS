@@ -13,10 +13,16 @@ Never edit `public/index.html` directly: the next build replaces it. The file is
 
 1. In `public/modules/seasons/section.html`, copy an `article.season-card` and give it a unique `id` and `data-season-id`. Update the year, title, description, cover image, and alt text.
 2. In `public/data/seasons.json`, add a key matching that `data-season-id`. Copy another entry as a starting point. Keep JSON commas and quotes valid.
-3. Add media entries such as `{ "src": "2026-2027/photo.jpeg", "alt": "Description of the robot" }`. Videos also need `"type": "video"`; a `poster` is optional. An optional `"model": "models/robot.glb"` enables the popup's 3D preview.
+3. Add media entries such as `{ "src": "2026-2027/photo.jpeg", "alt": "Description of the robot" }`. Videos also need `"type": "video"`; a `poster` is optional. Short silent loops use `"type": "clip"` (they autoplay like a GIF). An optional `"model": "models/robot.glb"` enables the popup's 3D preview.
 4. To show a model directly on a card, use the existing `data-inline-model` markup. Those models load as they approach the screen; popup models load on request.
 5. To change the featured robot, edit `public/modules/hero/section.html`. Its `data-season-target` must match a season's `data-season-id`.
 6. Update `lib/team-info.mjs` if the bot's approved team facts have changed.
+
+Keep media light, or the page loads slowly:
+
+- **Never add GIFs.** Convert them to a looping clip, which is about 30× smaller: `ffmpeg -i in.gif -movflags +faststart -pix_fmt yuv420p -vf "scale=trunc(iw/2)*2:trunc(ih/2)*2" -c:v libx264 -crf 26 -an out.mp4`, plus a poster with `ffmpeg -i out.mp4 -frames:v 1 out-poster.jpg`.
+- **Photos:** at most about 2560 px wide. Update `width`/`height` in the HTML to match.
+- **3D models:** shrink exported `.glb` files before adding them: `npx @gltf-transform/cli optimize in.glb out.glb --compress quantize --texture-compress webp --texture-size 1024 --simplify-ratio 0.35 --simplify-error 0.002`. Do not use Draco or Meshopt compression; the viewer has no decoder for them.
 
 Keep the permanent Coming Soon pug alongside new seasons. Keep real robot files separate from the supplied demo models until their replacements are ready.
 
@@ -41,12 +47,15 @@ Remove the class `is-open` once a slot belongs to a real sponsor; open slots hav
 
 In `public/modules/sponsors/section.html`:
 
+- **Newsletter button** (`data-newsletter`, in `public/modules/contact/section.html`): replace its `href` with the real newsletter sign-up page (Mailchimp, Substack, Buttondown…). Until then it opens an email.
 - **Monthly support button** (`data-subscribe`): replace its `href` with the real subscription or donation page (Patreon, Stripe, Revolut, bank page…). Until then it opens an email.
 - **Benefits table**: one `<tr>` per benefit, one cell per tier (Mild, Hot, Extra hot, Inferno). Use the existing "Included"/"Not included" cells or plain text. Every row must have one cell per tier; `npm test` checks this. The tiers are a proposal — confirm them with the team and add contribution amounts if you want them public.
 
 ## Projects and awards
 
 `public/modules/showcase/section.html` has one `li.project-card` per program and one `li` per award in `ol.award-list`. Update the counts in the tab buttons (`Projects <span>9</span>`) when adding or removing items; tests check them. Awards should match `achievements` in `lib/team-info.mjs`, so the Q&A bot stays in step. Add `class="is-major"` to an award to give it a star.
+
+Hovering or clicking a project or award opens a small preview card (like a Wikipedia link preview). The card shows text marked `class="preview-only"`: a project's description, or an award's `p.award-more` season summary. That text is hidden in the list while JavaScript runs and visible without it. Keep it to approved facts. Behavior: `public/js/hover-preview.js` (shared) and `initShowcasePreviews` in `public/modules/showcase/index.js`; styles: `public/css/preview.css`.
 
 ## Change gallery photos or the film
 
@@ -67,7 +76,7 @@ The film's source and poster are set in the `[data-open-film]` handler in `publi
 
 1. Make `public/modules/your-section/section.html` and `styles.css`. Use a unique section `id`; follow an existing section's heading and spacing markup.
 2. Add `<!-- include: modules/your-section/section.html -->` on its own line inside `<main>` in `src/index.html`. Move include lines to reorder sections. Include paths are relative to `public/`; nested includes are deliberately unsupported.
-3. Add `@import url("modules/your-section/styles.css");` to `public/styles.css` before shared effects.
+3. Add `@import url("modules/your-section/styles.css");` to `public/styles.css` before shared effects. The build turns this list into one `<link>` per file so browsers download them in parallel.
 4. If the section needs behavior, export an initializer from its `index.js`, import it in `public/js/main.js`, and call it before the visual effects. Static sections need no JavaScript file.
 5. Add navigation links where appropriate. Run the tests and build.
 
@@ -75,8 +84,7 @@ The film's source and poster are set in the `[data-open-film]` handler in `publi
 
 Scroll effects:
 
-- **Flames** (`public/js/heat-flames.js`): embers at the top of the page, building slowly while reading, then a full fire once the footer is on screen. Fast scrolling fans them briefly. Change how strong they get in `flameIntensity`, how tall in `ROWS`, colors in `STOPS`. The footer has extra bottom padding so its text sits above the fire.
-- **Hanging peppers** (markup in `public/modules/header/section.html`, physics in `public/js/hanging-peppers.js`): move a pepper with `--x`, change its string with `--len`, recolor with `is-dark` or `is-green`. Scrolling and hovering swing them, a click spins them. Strings shorten as the page scrolls, and tucked peppers ignore clicks.
+- **Flames** (`public/js/heat-flames.js`): embers at the top of the page, building slowly while reading, then a full fire once the footer is on screen. Fast scrolling fans them briefly. Change how strong they get in `flameIntensity`, how tall in `ROWS` and `COOLING`, colors in `STOPS`, and how see-through in `.heat-flames` (`opacity`) in `public/css/effects.css`. The footer has extra bottom padding so its text sits above the fire.
 - **Progress line and badge** (`public/js/scroll-fx.js`): the red line under the header and the rotating “Bring the heat” badge in Who we are.
 
 All of these stop moving for visitors who prefer reduced motion.

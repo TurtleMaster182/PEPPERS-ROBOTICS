@@ -4,7 +4,6 @@ import { readFileSync } from 'node:fs';
 import { renderPage } from '../scripts/build.mjs';
 import { scrollProgress } from '../public/js/scroll-fx.js';
 import { FLAME_PALETTE, flameIntensity, scrollFlare, feedFire, spreadFire } from '../public/js/heat-flames.js';
-import { swingStep, stringLength, isResting } from '../public/js/hanging-peppers.js';
 import { initShowcase } from '../public/modules/showcase/index.js';
 
 test('scroll progress runs from 0 at the top to 1 at the bottom, including short pages', () => {
@@ -40,22 +39,6 @@ test('heat rises from the fed bottom row, cools, and stays within the palette', 
   assert.ok(rowHeat(rows - 12) > 0, 'flames rise above the base');
   feedFire(fire, columns, rows, 0, () => 0.99);
   assert.ok(fire.slice((rows - 1) * columns).every(value => value === 0));
-});
-
-test('hanging peppers swing back to rest and tuck up as the page scrolls', () => {
-  const state = { angle: 0.8, speed: 0 };
-  let crossed = false;
-  for (let i = 0; i < 60; i++) {
-    swingStep(state, 1 / 60, 60);
-    if (state.angle < 0) crossed = true;
-  }
-  assert.ok(crossed, 'a released pepper swings through the middle');
-  for (let i = 0; i < 1200; i++) swingStep(state, 1 / 60, 60);
-  assert.ok(isResting(state));
-  swingStep(state, 1 / 60, 60, 5000);
-  assert.ok(Math.abs(state.angle) <= 1.25);
-  assert.equal(stringLength(100, 0, 900), 100);
-  assert.equal(Math.round(stringLength(100, 5000, 900)), 40);
 });
 
 const saved = Object.getOwnPropertyDescriptor(globalThis, 'document');

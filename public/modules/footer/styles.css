@@ -2,15 +2,15 @@
 .site-footer a:hover { color: var(--accent); }
 .site-footer { padding-block: 55px 70px; display: grid; grid-template-columns: 1.5fr .8fr 1fr; gap: 35px; }
 .site-footer > div { min-width: 0; }
-.site-footer h2 { font-size: 24px; line-height: 1.2; margin-top: 24px; }
-.site-footer h3 { font-size: 15px; margin-bottom: 22px; }
-.site-footer p { font-size: 12px; color: var(--muted); margin-top: 16px; max-width: 58ch; }
-.site-footer nav { display: grid; gap: 13px; font-size: 12px; }
-.footer-facts { display: grid; gap: 12px; margin: 22px 0 0; padding-top: 20px; border-top: 1px solid var(--line); font-size: 11px; }
+.site-footer h2 { font-size: 22px; line-height: 1.2; margin-top: 24px; }
+.site-footer h3 { font-size: 14px; margin-bottom: 22px; }
+.site-footer p { font-size: 11px; color: var(--muted); margin-top: 16px; max-width: 58ch; }
+.site-footer nav { display: grid; gap: 13px; font-size: 11px; }
+.footer-facts { display: grid; gap: 12px; margin: 22px 0 0; padding-top: 20px; border-top: 1px solid var(--line); font-size: 10px; }
 .footer-facts > div { display: flex; flex-wrap: wrap; gap: 6px 16px; }
-.footer-facts dt { color: var(--muted); min-width: 65px; }
+.footer-facts dt { color: var(--muted); min-width: 58px; }
 .footer-facts dd { margin: 0; }
-.footer-email { display: inline-block; font-size: 12px; overflow-wrap: anywhere; max-width: 100%; margin-bottom: 22px; }
+.footer-email { display: inline-block; font-size: 11px; overflow-wrap: anywhere; max-width: 100%; margin-bottom: 22px; }
 .footer-connect { padding-right: 30px; }
 @media (max-width: 800px) {
   .site-footer { grid-template-columns: 1fr 1fr; }
@@ -20,9 +20,9 @@
   .site-footer { grid-template-columns: 1fr; padding-bottom: 100px; }
 }
 /* Large logo and extra room at the bottom for the flames (js/heat-flames.js). */
-.footer-brand { font-size: 30px; gap: 12px; }
-.footer-brand .brand-mark { width: 44px; height: 44px; }
-.site-footer { padding-bottom: 230px; }
+.footer-brand { font-size: 27px; gap: 12px; }
+.footer-brand .brand-mark { width: 40px; height: 40px; }
+.site-footer { padding-bottom: 150px; }
 @media (max-width: 460px) {
-  .site-footer { padding-bottom: 240px; }
+  .site-footer { padding-bottom: 150px; }
 }

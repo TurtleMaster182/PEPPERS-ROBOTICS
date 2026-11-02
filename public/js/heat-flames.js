@@ -1,11 +1,13 @@
 // Pixel flames along the bottom of the screen. They start as embers at the top of
 // the page and grow into a full fire by the footer; fast scrolling fans them briefly.
 // Classic "fire spread" cellular automaton, drawn one canvas pixel per 5 × 5 CSS cell
-// so it matches the dither reveal grid.
+// so it matches the dither reveal grid. Mostly transparent (see .heat-flames in css/effects.css).
 import { onScroll } from './scroll-fx.js';
 
 const CELL = 5;
-const ROWS = 46;
+// 40% shorter than the original 46-row fire: fewer rows and faster cooling.
+const ROWS = 28;
+const COOLING = 3.9; // Mean heat lost per row ≈ COOLING / 2.6 × 0.85; higher means shorter flames.
 const LEVELS = 36;
 const STEP_MS = 1000 / 30;
 
@@ -47,7 +49,7 @@ export function spreadFire(fire, columns, rows, random = Math.random) {
       const source = y * columns + x;
       const heat = fire[source];
       const target = Math.max(0, source - columns - ((random() * 3) | 0) + 1);
-      fire[target] = heat === 0 ? 0 : Math.max(0, heat - ((random() * 2.6) | 0));
+      fire[target] = heat === 0 ? 0 : Math.max(0, heat - ((random() * COOLING) | 0));
     }
   }
 }

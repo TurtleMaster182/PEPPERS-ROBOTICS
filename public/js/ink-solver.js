@@ -1,5 +1,7 @@
 import { inkArrivalSteps } from './ink-field.js';
 
+// One worker is kept for the whole visit: re-creating it for every reveal made the
+// browser fetch ink-worker.js and ink-field.js again each time.
 let worker, active, workerFailed = false;
 const queue = [];
 let nextId = 0;
@@ -19,10 +21,12 @@ function settle(job, error, thresholds) {
 function drain() {
   if (active) return;
   const job = queue.shift();
-  if (!job) { worker?.terminate(); worker = undefined; return; }
+  if (!job) return;
   active = job;
   if (typeof Worker !== 'undefined' && !workerFailed) {
     try {
+      // A replaced Worker global (tests, polyfills) gets a fresh worker.
+      if (worker && !(worker instanceof Worker)) { worker.terminate(); worker = undefined; }
       if (!worker) {
         const created = new Worker(new URL('./ink-worker.js', import.meta.url), { type: 'module' });
         worker = created;
