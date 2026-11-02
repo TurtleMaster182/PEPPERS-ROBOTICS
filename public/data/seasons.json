@@ -2,14 +2,14 @@
   "kickathon": {
     "media": [
       { "src": "2026-2027/KICKOFF1.jpeg", "alt": "The team at Kickathon" },
-      { "src": "2026-2027/V1.jpeg", "alt": "Cristina in the workshop" },
+      { "src": "2026-2027/V1.jpeg", "alt": "The Kickoff Robot in the workshop" },
       { "src": "2026-2027/output.mp4", "type": "clip", "poster": "2026-2027/output-poster.jpg", "alt": "Testing the build" },
       { "src": "2026-2027/crash.mp4", "type": "clip", "poster": "2026-2027/crash-poster.jpg", "alt": "Learning through testing" },
       { "src": "2026-2027/dance.mp4", "type": "clip", "poster": "2026-2027/dance-poster.jpg", "alt": "A moment with the team" },
       { "src": "2026-2027/GROUP.jpeg", "alt": "Peppers together" },
       { "src": "2026-2027/score.mp4", "type": "clip", "poster": "2026-2027/score-poster.jpg", "alt": "Putting the robot to work" },
       { "src": "2026-2027/measure.jpeg", "alt": "Checking the measurements" },
-      { "src": "2026-2027/work.jpeg", "alt": "Building Cristina together" }
+      { "src": "2026-2027/work.jpeg", "alt": "Building the Kickoff Robot together" }
     ]
   },
   "2025-26": {
