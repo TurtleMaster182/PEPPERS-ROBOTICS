@@ -7,7 +7,8 @@
 .header-actions { gap: 20px; }
 .menu-toggle { display: none; padding: 10px 0; background: none; border: 0; font-size: 12px; }
 .menu-toggle span { margin-left: 8px; }
-.nav-cta { padding: 11px 15px; font-size: 10px; gap: 14px; }
+.nav-cta { min-height: 38px; padding: 4px 4px 4px 16px; font-size: 11px; gap: 12px; }
+.nav-cta > span[aria-hidden="true"] { width: 28px; height: 28px; }
 @media (max-width: 1100px) {
   .site-header nav { gap: 17px; }
   .site-header nav a { font-size: 11px; }

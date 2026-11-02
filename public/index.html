@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="modules/header/styles.css">
+  <link rel="stylesheet" href="modules/opening/styles.css">
   <link rel="stylesheet" href="modules/hero/styles.css">
   <link rel="stylesheet" href="modules/mission/styles.css">
   <link rel="stylesheet" href="modules/events/styles.css">
@@ -56,9 +57,31 @@
   </header>
 
   <main id="main">
+    <!-- First photo on the page. The sponsor bar sits directly below it. -->
     <section class="opening-photo" aria-label="Peppers workshop">
       <img src="2025-2026/LAB1CLEAN.jpg" alt="Inside the Peppers Robotics workshop" fetchpriority="high">
     </section>
+
+    <!-- Sponsor bar. Replace open slots with approved sponsors: copy an <li>, set the link,
+         name (or a logo <img> inside .sponsor-logo), tier, and the one-line info. -->
+    <section class="partners-bar" id="partners" aria-labelledby="partnersTitle">
+      <div class="wrap partners-head">
+        <h2 id="partnersTitle" class="eyebrow">Fuelled by our partners</h2>
+        <a class="text-button" href="#sponsors">Your logo could be here <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="marquee" data-marquee>
+        <ul class="marquee-track">
+          <li><a class="sponsor-chip" href="#about" data-sponsor-tier="Home base"><span class="sponsor-logo">LIIS “Grigore Moisil”</span><span class="sponsor-info">Liceul Teoretic de Informatică “Grigore Moisil”, Iași. Our school and the home of the Peppers workshop.</span></a></li>
+          <li><a class="sponsor-chip is-open" href="#sponsors" data-sponsor-tier="Inferno partner · open"><span class="sponsor-logo">Your logo</span><span class="sponsor-info">Headline partner. Logo on the robot, team shirts, and this site, plus a workshop visit and a season shout-out.</span></a></li>
+          <li><a class="sponsor-chip is-open" href="#sponsors" data-sponsor-tier="Extra hot partner · open"><span class="sponsor-logo">Your logo</span><span class="sponsor-info">Logo on the robot and team shirts, featured posts on our social channels, and a place in this bar.</span></a></li>
+          <li><a class="sponsor-chip is-open" href="#sponsors" data-sponsor-tier="Parts partner · open"><span class="sponsor-logo">Parts &amp; tools</span><span class="sponsor-info">Components, materials, fabrication, or machine time that go straight into the next build.</span></a></li>
+          <li><a class="sponsor-chip is-open" href="#sponsors" data-sponsor-tier="Hot partner · open"><span class="sponsor-logo">Your logo</span><span class="sponsor-info">Logo on this site and in our season thank-you posts.</span></a></li>
+          <li><a class="sponsor-chip is-open" href="#sponsors" data-sponsor-tier="Mentor partner · open"><span class="sponsor-logo">Your team</span><span class="sponsor-info">Engineers and professionals who share time and experience with students in the workshop.</span></a></li>
+          <li><a class="sponsor-chip is-open" href="#sponsors" data-sponsor-tier="Mild supporter · open"><span class="sponsor-logo">Your name</span><span class="sponsor-info">Monthly supporters keep the workshop running between competitions. Every contribution counts.</span></a></li>
+        </ul>
+      </div>
+    </section>
+
     <section class="hero wrap" id="home" aria-labelledby="heroTitle">
       <div class="hero-copy">
         <p class="eyebrow"><span class="status-dot"></span> FTC Team 19044 <span class="eyebrow-divider">/</span> Iași, Romania</p>
@@ -222,26 +245,6 @@
       </div>
     </section>
 
-    <!-- Sponsor bar. Replace open slots with approved sponsors: copy an <li>, set the link,
-         name (or a logo <img> inside .sponsor-logo), tier, and the one-line info. -->
-    <section class="partners-bar" id="partners" aria-labelledby="partnersTitle">
-      <div class="wrap partners-head">
-        <h2 id="partnersTitle" class="eyebrow">Fuelled by our partners</h2>
-        <a class="text-button" href="#sponsors">Your logo could be here <span aria-hidden="true">↗</span></a>
-      </div>
-      <div class="marquee" data-marquee>
-        <ul class="marquee-track">
-          <li><a class="sponsor-chip" href="#about" data-sponsor-tier="Home base"><span class="sponsor-logo">LIIS “Grigore Moisil”</span><span class="sponsor-info">Liceul Teoretic de Informatică “Grigore Moisil”, Iași. Our school and the home of the Peppers workshop.</span></a></li>
-          <li><a class="sponsor-chip is-open" href="#sponsors" data-sponsor-tier="Inferno partner · open"><span class="sponsor-logo">Your logo</span><span class="sponsor-info">Headline partner. Logo on the robot, team shirts, and this site, plus a workshop visit and a season shout-out.</span></a></li>
-          <li><a class="sponsor-chip is-open" href="#sponsors" data-sponsor-tier="Extra hot partner · open"><span class="sponsor-logo">Your logo</span><span class="sponsor-info">Logo on the robot and team shirts, featured posts on our social channels, and a place in this bar.</span></a></li>
-          <li><a class="sponsor-chip is-open" href="#sponsors" data-sponsor-tier="Parts partner · open"><span class="sponsor-logo">Parts &amp; tools</span><span class="sponsor-info">Components, materials, fabrication, or machine time that go straight into the next build.</span></a></li>
-          <li><a class="sponsor-chip is-open" href="#sponsors" data-sponsor-tier="Hot partner · open"><span class="sponsor-logo">Your logo</span><span class="sponsor-info">Logo on this site and in our season thank-you posts.</span></a></li>
-          <li><a class="sponsor-chip is-open" href="#sponsors" data-sponsor-tier="Mentor partner · open"><span class="sponsor-logo">Your team</span><span class="sponsor-info">Engineers and professionals who share time and experience with students in the workshop.</span></a></li>
-          <li><a class="sponsor-chip is-open" href="#sponsors" data-sponsor-tier="Mild supporter · open"><span class="sponsor-logo">Your name</span><span class="sponsor-info">Monthly supporters keep the workshop running between competitions. Every contribution counts.</span></a></li>
-        </ul>
-      </div>
-    </section>
-
     <section class="section wrap" id="seasons" aria-labelledby="seasonsTitle">
       <div class="section-heading">
         <div>
@@ -272,6 +275,7 @@
         <article class="season-card" id="season-2024-25" data-season-id="2024-25">
           <div class="season-cover inline-model" data-inline-model="models/robot1.glb">
             <p class="model-loading">Interactive 3D demo</p>
+            <span class="season-year">2024–25</span>
           </div>
           <div class="season-content">
             <p class="eyebrow">Build archive</p>
@@ -283,6 +287,7 @@
         <article class="season-card" id="season-2023-24" data-season-id="2023-24">
           <div class="season-cover inline-model" data-inline-model="models/robot2.glb">
             <p class="model-loading">Interactive 3D demo</p>
+            <span class="season-year">2023–24</span>
           </div>
           <div class="season-content">
             <p class="eyebrow">Build archive</p>
@@ -327,7 +332,7 @@
         <div class="memory-row" data-drift="-1"><figure class="memory"><img data-viewport-src="2026-2027/KICKOFF1.jpeg" alt="The team at Kickathon" width="2048" height="1152"><noscript><img src="2026-2027/KICKOFF1.jpeg" alt="The team at Kickathon" width="2048" height="1152" loading="lazy"></noscript></figure><figure class="memory"><img data-viewport-src="2026-2027/work.jpeg" alt="Building and testing together" width="2048" height="1536"><noscript><img src="2026-2027/work.jpeg" alt="Building and testing together" width="2048" height="1536" loading="lazy"></noscript></figure><figure class="memory"><img data-viewport-src="2026-2027/GROUP.jpeg" alt="A group photo with Peppers" width="900" height="1600"><noscript><img src="2026-2027/GROUP.jpeg" alt="A group photo with Peppers" width="900" height="1600" loading="lazy"></noscript></figure><figure class="memory"><img data-viewport-src="2026-2027/V1.jpeg" alt="Cristina in the workshop" width="1920" height="1080"><noscript><img src="2026-2027/V1.jpeg" alt="Cristina in the workshop" width="1920" height="1080" loading="lazy"></noscript></figure><figure class="memory"><img data-viewport-src="2026-2027/measure.jpeg" alt="Checking a mechanism’s measurements" width="1640" height="1232"><noscript><img src="2026-2027/measure.jpeg" alt="Checking a mechanism’s measurements" width="1640" height="1232" loading="lazy"></noscript></figure></div>
         <div class="memory-row" data-drift="1"><figure class="memory"><img data-viewport-src="photos/team-competition.webp" alt="The team together at a robotics competition" width="960" height="720"><noscript><img src="photos/team-competition.webp" alt="The team together at a robotics competition" width="960" height="720" loading="lazy"></noscript></figure><figure class="memory"><img data-viewport-src="2025-2026/LAB1CLEAN.jpg" alt="Inside the Peppers workshop" width="2560" height="1920"><noscript><img src="2025-2026/LAB1CLEAN.jpg" alt="Inside the Peppers workshop" width="2560" height="1920" loading="lazy"></noscript></figure><figure class="memory"><img data-viewport-src="2026-2027/Untitled.png" alt="Peppers: chilli’ng in robotics" width="2000" height="733"><noscript><img src="2026-2027/Untitled.png" alt="Peppers: chilli’ng in robotics" width="2000" height="733" loading="lazy"></noscript></figure><figure class="memory"><img data-viewport-src="2025-2026/C1CURAT.jpg" alt="The build space" width="1920" height="1080"><noscript><img src="2025-2026/C1CURAT.jpg" alt="The build space" width="1920" height="1080" loading="lazy"></noscript></figure><figure class="memory"><img data-viewport-src="2025-2026/CAD.png" alt="A robot design in CAD" width="877" height="639"><noscript><img src="2025-2026/CAD.png" alt="A robot design in CAD" width="877" height="639" loading="lazy"></noscript></figure></div>
       </div>
-      <div class="wrap album-grid"><button type="button" class="album-button" data-open-album="workshop"><span class="album-icon" aria-hidden="true">[ 01 ]</span><span><span class="eyebrow">Photos / The build space</span><strong>Inside the workshop</strong></span><span aria-hidden="true">↗</span></button><button type="button" class="album-button" data-open-album="team"><span class="album-icon" aria-hidden="true">[ 02 ]</span><span><span class="eyebrow">Photos / The people</span><strong>Life with Peppers</strong></span><span aria-hidden="true">↗</span></button><button type="button" class="album-button" data-open-film><span class="album-icon" aria-hidden="true">[ ▶ ]</span><span><span class="eyebrow">Video / The team film</span><strong>Peppers in motion</strong></span><span aria-hidden="true">↗</span></button></div>
+      <div class="wrap album-grid"><button type="button" class="album-button" data-open-album="team"><span class="album-icon" aria-hidden="true">[ 01 ]</span><span><span class="eyebrow">Photos / The people</span><strong>Life with Peppers</strong></span><span aria-hidden="true">↗</span></button><button type="button" class="album-button" data-open-film><span class="album-icon" aria-hidden="true">[ ▶ ]</span><span><span class="eyebrow">Video / The team film</span><strong>Peppers in motion</strong></span><span aria-hidden="true">↗</span></button></div>
     </section>
 
     <section class="section support-section" id="sponsors" aria-labelledby="sponsorsTitle">
@@ -459,6 +464,12 @@
           <a class="contact-email" href="mailto:contact@peppers-robotics.ro">contact@peppers-robotics.ro</a>
           <div class="actions"><a class="button" href="mailto:contact@peppers-robotics.ro">Email the team <span aria-hidden="true">↗</span></a></div>
           <nav class="contact-socials" aria-label="Peppers social media"><a href="https://www.instagram.com/cyliispepp/" target="_blank" rel="noopener noreferrer">Instagram <span aria-hidden="true">↗</span></a><a href="https://www.facebook.com/cyliispepp/" target="_blank" rel="noopener noreferrer">Facebook <span aria-hidden="true">↗</span></a><a href="https://youtube.com/@cyliispepp" target="_blank" rel="noopener noreferrer">YouTube <span aria-hidden="true">↗</span></a></nav>
+          <!-- Newsletter: replace the href with the real sign-up page (Mailchimp, Substack, Buttondown…). Until then it opens an email. -->
+          <div class="newsletter">
+            <p class="newsletter-lead" id="newsletterLead">Or subscribe to<br>our newsletter</p>
+            <svg class="newsletter-arrow" viewBox="0 0 130 56" aria-hidden="true" focusable="false"><path d="M6 6c4 26 28 44 62 44 22 0 40-8 52-24"/><path d="M106 20l15 5-3 15"/></svg>
+            <a class="button newsletter-button" href="mailto:contact@peppers-robotics.ro?subject=Newsletter%20sign-up&amp;body=Please%20add%20me%20to%20the%20Peppers%20newsletter." aria-describedby="newsletterLead" data-newsletter>Subscribe <span aria-hidden="true">↗</span></a>
+          </div>
         </div>
       </div>
     </section>

@@ -3,7 +3,7 @@
 .season-card { min-width: 0; scroll-snap-align: start; background: var(--surface); border: 1px solid var(--line); align-self: start; }
 .season-cover { position: relative; height: 270px; background: var(--surface-alt); overflow: hidden; }
 .season-cover > img { width: 100%; height: 100%; object-fit: cover; }
-.season-year { position: absolute; top: 12px; left: 12px; background: #101110; color: #f4f3ed; padding: 4px 9px; font-size: 9px; }
+.season-year { position: absolute; z-index: 2; top: 12px; left: 12px; pointer-events: none; background: #101110; color: #f4f3ed; padding: 4px 9px; font-size: 9px; }
 .cad-cover { background: #303030; }
 .cad-cover > img { object-fit: contain; }
 .model-cover { display: flex; align-items: center; justify-content: center; gap: 20px; }

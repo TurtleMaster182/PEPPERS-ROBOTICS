@@ -2,7 +2,7 @@
 import { initHeader } from '../modules/header/index.js';
 import { initDetails } from '../modules/details/index.js';
 import { initSeasons } from '../modules/seasons/index.js';
-import { initEvents } from '../modules/events/index.js';
+import { initEvents, initEventPreviews } from '../modules/events/index.js';
 import { initShowcase } from '../modules/showcase/index.js';
 import { initPartners } from '../modules/partners/index.js';
 import { initGallery } from '../modules/gallery/index.js';
@@ -19,6 +19,7 @@ initHeader();
 initDetails();
 initSeasons();
 initEvents();
+initEventPreviews();
 initShowcase();
 initPartners();
 initGallery();

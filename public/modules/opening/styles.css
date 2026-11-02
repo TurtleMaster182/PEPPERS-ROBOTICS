@@ -1,0 +1,6 @@
+/* Opening photo. Keep this module’s responsive rules here too. */
+.opening-photo { background: var(--surface); }
+.opening-photo img { width: 100%; height: min(61.2vh, 684px); min-height: 252px; object-fit: cover; object-position: center; }
+@media (max-width: 800px) {
+  .opening-photo img { height: auto; min-height: 0; aspect-ratio: 16 / 9; }
+}

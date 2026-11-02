@@ -30,7 +30,7 @@ Keep the permanent Coming Soon pug alongside new seasons. Keep real robot files 
 
 Edit `public/modules/events/section.html`. Each `article.event-card` contains its visible date, title, location, time, and expandable details. Keep `time datetime="YYYY-MM-DD"` consistent with the displayed date.
 
-`data-event-kind` must match a `data-event-filter` button (`competition` or `community`). If you add a category, add a matching filter too. Update the initial `eventFilterStatus` count when adding or removing cards. Keep the draft notice until the schedule is confirmed. Put confirmed registration or livestream links inside the event details.
+`data-event-kind` must match a `data-event-filter` button (`competition` or `community`). If you add a category, add a matching filter too. Update the initial `eventFilterStatus` count when adding or removing cards. Keep the draft notice until the schedule is confirmed. Put confirmed registration or livestream links inside the event details. Hovering or clicking a card shows those details in a small preview card (like a Wikipedia link preview), built from the card's date, location, time, and `.event-more` content; behavior is in `public/modules/events/index.js`, styles at the end of that folder's `styles.css`.
 
 ## Add a sponsor to the sponsor bar
 
@@ -47,6 +47,7 @@ Remove the class `is-open` once a slot belongs to a real sponsor; open slots hav
 
 In `public/modules/sponsors/section.html`:
 
+- **Newsletter button** (`data-newsletter`, in `public/modules/contact/section.html`): replace its `href` with the real newsletter sign-up page (Mailchimp, Substack, Buttondown…). Until then it opens an email.
 - **Monthly support button** (`data-subscribe`): replace its `href` with the real subscription or donation page (Patreon, Stripe, Revolut, bank page…). Until then it opens an email.
 - **Benefits table**: one `<tr>` per benefit, one cell per tier (Mild, Hot, Extra hot, Inferno). Use the existing "Included"/"Not included" cells or plain text. Every row must have one cell per tier; `npm test` checks this. The tiers are a proposal — confirm them with the team and add contribution amounts if you want them public.
 

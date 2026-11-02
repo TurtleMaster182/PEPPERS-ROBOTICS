@@ -1,6 +1,4 @@
-/* Opening photo, introduction, and featured robot. */
-.opening-photo { background: var(--surface); }
-.opening-photo img { width: 100%; height: min(61.2vh, 684px); min-height: 252px; object-fit: cover; object-position: center; }
+/* Introduction and featured robot. */
 .hero { display: grid; grid-template-columns: 1.05fr 1fr; gap: 7vw; align-items: center; padding-block: clamp(88px, 11vw, 168px); }
 .hero-copy > .eyebrow { display: flex; align-items: center; gap: 10px; color: var(--muted); margin-bottom: 27px; }
 .status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
@@ -17,7 +15,6 @@
 .hero-build-photo { height: clamp(297px, 32.4vw, 477px); overflow: hidden; }
 .hero-build-photo img { width: 100%; height: 100%; object-fit: cover; }
 @media (max-width: 800px) {
-  .opening-photo img { height: auto; min-height: 0; aspect-ratio: 16 / 9; }
   .hero { grid-template-columns: 1fr; gap: 40px; }
   .hero h1 { font-size: clamp(39px, 8.55vw, 68px); }
   .hero-description { max-width: 54ch; }

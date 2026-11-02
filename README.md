@@ -24,11 +24,12 @@ Start with [MAINTAINING.md](MAINTAINING.md) for common editing tasks and the han
 | Location | What to edit there |
 | --- | --- |
 | `public/modules/header/` | Navigation, mobile menu, theme button and scroll progress line |
-| `public/modules/hero/` | Opening workshop photo, headline, and featured robot |
+| `public/modules/opening/` | Opening workshop photo (the sponsor bar follows it) |
+| `public/modules/partners/` | Auto-scrolling sponsor bar with hover/tap info cards |
+| `public/modules/hero/` | Headline and featured robot |
 | `public/modules/mission/` | 01 Who we are: team, mission, what FTC is, quick facts, spinning badge |
 | `public/modules/events/` | 02 News: event listings and category filters |
 | `public/modules/showcase/` | 03 Projects (outreach programs) and awards, in two tabs |
-| `public/modules/partners/` | Auto-scrolling sponsor bar with hover/tap info cards |
 | `public/modules/seasons/` | 04 Robot cards and inline model loading |
 | `public/modules/gallery/` | 05 Memories: drifting photo wall, album buttons, team film |
 | `public/modules/sponsors/` | 06 Support us: monthly support button, sponsor benefits table, other ways to help |

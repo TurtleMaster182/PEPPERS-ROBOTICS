@@ -4,14 +4,24 @@
 .contact-inner h2 { font-size: clamp(38px, 4.5vw, 63px); margin-top: 25px; }
 .contact-inner > div > p:not(.eyebrow) { font-size: 13px; max-width: 46ch; }
 .contact-inner .actions { gap: 10px; margin-top: 28px; }
-.contact-inner .button { --press: #101110; background: #fff; border-color: #fff; color: #101110; font-size: 11px; gap: 20px; }
-.contact-inner .button > span[aria-hidden="true"] { color: inherit; }
-.contact-inner .button:hover { --press: #fff; background: #101110; color: #fff; border-color: #101110; }
-.contact-inner .contact-chat { background: transparent; color: #fff; border-color: #fff; }
+/* On the red background the hover goes dark instead of red. */
+.contact-inner .button:hover { background: #101110; color: #fff; border-color: #101110; }
+.contact-inner .button:hover > span[aria-hidden="true"] { background: var(--accent-solid); color: #fff; }
 .contact-email { display: inline-block; max-width: 100%; margin-top: 22px; font-size: clamp(14px, 1.44vw, 19px); font-weight: 600; overflow-wrap: anywhere; }
 .contact-email:hover { text-decoration: underline; }
 .contact-socials { display: flex; flex-wrap: wrap; gap: 18px; padding-top: 22px; margin-top: 25px; border-top: 1px solid #ffffff50; font-size: 11px; }
 .contact-socials a:hover { text-decoration: underline; }
+/* Newsletter call-out: pixel-font line, hand-drawn arrow, white button. */
+.newsletter { display: grid; grid-template-columns: auto 110px auto; align-items: end; justify-content: start; gap: 6px 14px; margin-top: 32px; }
+.newsletter-lead { align-self: start; font: 400 clamp(18px, 1.7vw, 24px)/1.05 'ROG Display', Archivo, Arial, sans-serif; color: #101110; text-transform: uppercase; letter-spacing: .01em; white-space: nowrap; }
+.newsletter-arrow { width: 110px; height: 48px; margin-bottom: 4px; fill: none; stroke: #101110; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.newsletter-button { min-height: 54px; padding-left: 28px; font-size: 14px; }
+.newsletter-button > span[aria-hidden="true"] { width: 38px; height: 38px; }
 @media (max-width: 800px) {
   .contact-inner { grid-template-columns: 1fr; gap: 38px; }
+}
+@media (max-width: 460px) {
+  .newsletter { grid-template-columns: auto 1fr; }
+  .newsletter-arrow { width: 70px; height: 34px; justify-self: start; }
+  .newsletter-button { grid-column: 1 / -1; width: 100%; }
 }

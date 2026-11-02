@@ -141,7 +141,9 @@ export function initDetails() {
   }
 
   function openSeason(card) {
-    openGallery('seasons', card.dataset.seasonId, card.querySelector('h3').textContent, card.querySelector('.season-year').textContent, card.querySelector('.season-description').textContent);
+    // Every card part is optional, so a card without a year badge still opens.
+    const text = selector => card.querySelector(selector)?.textContent.trim() || '';
+    openGallery('seasons', card.dataset.seasonId, text('h3'), text('.season-year') || text('.eyebrow'), text('.season-description'));
   }
   document.querySelectorAll('[data-open-season]').forEach(button => {
     button.addEventListener('click', () => openSeason(button.closest('[data-season-id]')));

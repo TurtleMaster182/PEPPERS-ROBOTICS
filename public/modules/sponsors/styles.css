@@ -4,9 +4,8 @@
 .support-hero h2 { font-size: clamp(58px, 9.9vw, 151px); line-height: .9; text-transform: uppercase; letter-spacing: -.05em; }
 .support-pitch p { color: var(--muted); font-size: 14px; max-width: 46ch; margin-bottom: 28px; }
 .support-pitch .actions { gap: 12px; }
-.support-subscribe { padding: 18px 26px; font-size: 14px; animation: support-pulse 2.4s ease-out infinite; }
-.support-subscribe:is(:hover, :active) { animation: none; }
-@keyframes support-pulse { 0% { box-shadow: 4px 4px 0 var(--press), 0 0 0 0 #ff000080; } 70%, 100% { box-shadow: 4px 4px 0 var(--press), 0 0 0 16px #ff000000; } }
+.support-subscribe { min-height: 54px; padding-left: 28px; font-size: 14px; }
+.support-subscribe > span[aria-hidden="true"] { width: 38px; height: 38px; }
 .tier-table-wrap { position: relative; overflow-x: auto; border: 1px solid var(--line); background: var(--surface); }
 .tier-table { width: 100%; min-width: 648px; border-collapse: collapse; font-size: 12px; }
 .tier-table caption { text-align: left; padding: 18px 22px; font-size: 10px; font-weight: 600; letter-spacing: .11em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--line); }
