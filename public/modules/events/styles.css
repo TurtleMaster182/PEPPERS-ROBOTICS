@@ -17,10 +17,10 @@
 .event-location { font-size: 11px; color: var(--muted); margin-top: 18px; min-height: 36px; }
 .event-time { font-size: 10px; margin-top: 5px; margin-bottom: 23px; }
 /* Same look as .button. */
-.event-card summary { display: flex; justify-content: space-between; align-items: center; padding: 12px 15px; background: var(--button-bg); color: #fff; border: 1px solid var(--button-border); font-size: 11px; font-weight: 800; box-shadow: 4px 4px 0 var(--accent-solid); transition: background-color .15s, border-color .15s, box-shadow .15s; }
+.event-card summary { display: flex; justify-content: space-between; align-items: center; padding: 12px 15px; background: var(--button-bg); color: #fff; border: 1px solid var(--button-border); font-size: 11px; font-weight: 800; box-shadow: 4px 4px 0 var(--button-shadow); transition: background-color .15s, border-color .15s, box-shadow .15s; }
 .event-card summary > span { color: #fff; }
-.event-card summary:hover { color: var(--dark-red); background: var(--cyan); border-color: var(--cyan); }
-.event-card summary:hover > span { color: var(--dark-red); }
+.event-card summary:hover { color: var(--on-hover); background: var(--hover); border-color: var(--hover); box-shadow: 4px 4px 0 var(--accent-solid); }
+.event-card summary:hover > span { color: var(--on-hover); }
 .event-more { padding-top: 18px; font-size: 11px; color: var(--muted); }
 .event-more p + p { margin-top: 13px; }
 .filter-status { color: var(--muted); font-size: 9px; margin-top: 18px; }

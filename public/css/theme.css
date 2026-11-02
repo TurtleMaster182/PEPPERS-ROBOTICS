@@ -13,37 +13,107 @@
   font-display: swap; }
 :root {
   color-scheme: dark;
-  /* Team palette: cyan #57BEBB, red #CE6153, dark red #3E3035 (in place of black),
-     dark green #5F7B71 (in place of greys). Lighter/darker steps below are tints of these. */
-  --cyan: #57bebb;
-  --red: #ce6153;
-  --dark-red: #3e3035;
-  --dark-green: #5f7b71;
-  --bg: var(--dark-red);
-  --surface: #47383e;
-  --surface-alt: #514147;
-  --text: #f4f3ed;
-  --muted: #b2c6be;   /* light tint of the dark green, readable on dark red */
-  --line: #5a5e5c;    /* dark green blended into the background */
-  /* Red for accents and filled areas; cyan for hover, focus, and secondary accents. */
-  --accent: var(--red);
-  --accent-solid: var(--red);
-  --accent-2: var(--cyan);
-  /* Buttons: dark green in both themes. */
-  --button-bg: var(--dark-green);
-  --button-border: #7a958b;
   --max-width: 1224px;
   --gutter: clamp(22px, 4vw, 64px);
 }
+
+/* Colour roles. Every stylesheet uses these, never raw palette colours:
+   --bg, --surface, --surface-alt   page and card backgrounds
+   --text, --muted, --line          text, secondary text, borders
+   --accent                         highlighted text (headline word, numbers, labels)
+   --accent-solid                   filled areas (contact block, chat bubble)
+   --accent-2                       links on hover, focus ring, second stat colour
+   --hover, --on-hover              button hover fill and its text colour
+   --button-bg, --button-border, --button-shadow
+   --ink                            darkest colour (badges, shadows on the filled block)
+   --on-solid-strong                big text on --accent-solid (newsletter line)
+   --accent-tint, --accent-glow     faint highlight column and background glow
+   Pick a palette with ?palette=lava or ?palette=team in the address (js/theme.js). */
+
+/* "Lava" palette (default): Molten Lava #740505, Night Bordeaux #50000B, Onyx #041500,
+   Amber Honey #E7A500, Hunter Green #2C5C20. */
+:root {
+  --bg: #041500;
+  --surface: #50000b;
+  --surface-alt: #620812;
+  --text: #f6f1e4;
+  --muted: #c2d3bb;
+  --line: #2f4d26;
+  --accent: #e7a500;
+  --accent-solid: #740505;
+  --accent-2: #e7a500;
+  --hover: #e7a500;
+  --on-hover: #041500;
+  --button-bg: #2c5c20;
+  --button-border: #457a37;
+  --button-shadow: #e7a500;
+  --ink: #041500;
+  --on-solid-strong: #e7a500;
+  --accent-tint: #e7a5001a;
+  --accent-glow: #74050566;
+}
+
+/* "Team" palette: cyan #57BEBB, red #CE6153, dark red #3E3035 (in place of black),
+   dark green #5F7B71 (in place of greys). */
+:root[data-palette="team"] {
+  --bg: #3e3035;
+  --surface: #47383e;
+  --surface-alt: #514147;
+  --text: #f4f3ed;
+  --muted: #b2c6be;
+  --line: #5a5e5c;
+  --accent: #ce6153;
+  --accent-solid: #ce6153;
+  --accent-2: #57bebb;
+  --hover: #57bebb;
+  --on-hover: #3e3035;
+  --button-bg: #5f7b71;
+  --button-border: #7a958b;
+  --button-shadow: #ce6153;
+  --ink: #3e3035;
+  --on-solid-strong: #3e3035;
+  --accent-tint: #ce61531f;
+  --accent-glow: #ce615333;
+}
+
 :root.light-mode {
   color-scheme: light;
+  --bg: #fffdf6;
+  --surface: #f7efe0;
+  --surface-alt: #efe3c9;
+  --text: #041500;
+  --muted: #2c5c20;
+  --line: #d9dccb;
+  --accent: #740505;
+  --accent-solid: #740505;
+  --accent-2: #2c5c20;
+  --hover: #e7a500;
+  --on-hover: #041500;
+  --button-bg: #2c5c20;
+  --button-border: #2c5c20;
+  --button-shadow: #740505;
+  --ink: #041500;
+  --on-solid-strong: #e7a500;
+  --accent-tint: #74050512;
+  --accent-glow: #e7a50033;
+}
+:root.light-mode[data-palette="team"] {
   --bg: #fff;
   --surface: #f6f2f1;
   --surface-alt: #ebe4e3;
-  --text: var(--dark-red);
-  --muted: #4f685f;   /* dark green, darkened slightly for small text on white */
+  --text: #3e3035;
+  --muted: #4f685f;
   --line: #cfdad5;
-  --accent: var(--accent-solid);
-  --accent-2: #2f8f8c; /* deeper cyan so it stays visible on white */
-  --button-border: var(--dark-green);
+  --accent: #ce6153;
+  --accent-solid: #ce6153;
+  --accent-2: #2f8f8c;
+  --hover: #57bebb;
+  --on-hover: #3e3035;
+  --button-bg: #5f7b71;
+  --button-border: #5f7b71;
+  --button-shadow: #ce6153;
+  --ink: #3e3035;
+  --on-solid-strong: #3e3035;
+  --accent-tint: #ce61531f;
+  --accent-glow: #ce615333;
 }

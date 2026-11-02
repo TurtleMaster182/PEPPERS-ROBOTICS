@@ -34,7 +34,7 @@
 .project-card.has-preview { transition: border-color .15s, background-color .15s; }
 .project-card.has-preview::after { content: "+"; position: absolute; right: 18px; bottom: 16px; display: grid; place-items: center; width: 26px; height: 26px; border: 1px solid var(--muted); color: var(--accent); font: 700 16px/1 Arial, sans-serif; transition: background-color .15s, color .15s, border-color .15s; }
 .project-card.has-preview:is(:hover, [aria-expanded="true"]) { border-color: var(--accent-2); background: var(--surface); }
-.project-card.has-preview:is(:hover, [aria-expanded="true"])::after { background: var(--cyan); border-color: var(--cyan); color: var(--dark-red); }
+.project-card.has-preview:is(:hover, [aria-expanded="true"])::after { background: var(--hover); border-color: var(--hover); color: var(--on-hover); }
 .award-list li.has-preview { position: relative; padding-right: 44px; }
 .award-list li.has-preview::after { content: "+"; position: absolute; right: 6px; top: 50%; translate: 0 -50%; color: var(--accent); font: 700 16px/1 Arial, sans-serif; }
 .award-list li[aria-expanded="true"] { padding-left: 14px; background: var(--bg); }

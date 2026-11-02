@@ -4,9 +4,9 @@
 .album-icon { color: var(--accent); font: 400 20px 'ROG', monospace; grid-column: 1 / -1; }
 .album-button .eyebrow { display: block; font-size: 8px; color: var(--muted); margin-bottom: 8px; }
 .album-button strong { font-family: 'ROG', Archivo, Arial, sans-serif; font-size: 18px; }
-.album-button > span:last-child { align-self: end; display: grid; place-items: center; width: 40px; height: 40px; background: var(--button-bg); border: 1px solid var(--button-border); color: #fff; font-size: 18px; box-shadow: 3px 3px 0 var(--accent-solid); transition: background-color .15s, color .15s; }
+.album-button > span:last-child { align-self: end; display: grid; place-items: center; width: 40px; height: 40px; background: var(--button-bg); border: 1px solid var(--button-border); color: #fff; font-size: 18px; box-shadow: 3px 3px 0 var(--button-shadow); transition: background-color .15s, color .15s; }
 .album-button:hover { border-color: var(--accent-2); background: var(--surface-alt); }
-.album-button:hover > span:last-child { background: var(--cyan); border-color: var(--cyan); color: var(--dark-red); }
+.album-button:hover > span:last-child { background: var(--hover); border-color: var(--hover); color: var(--on-hover); }
 @media (max-width: 800px) {
   .album-grid { grid-template-columns: 1fr; }
 }
