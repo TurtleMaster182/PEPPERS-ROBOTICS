@@ -13,28 +13,37 @@
   font-display: swap; }
 :root {
   color-scheme: dark;
-  --bg: #0a0b0d;
-  --surface: #131513;
-  --surface-alt: #1b1e1b;
+  /* Team palette: cyan #57BEBB, red #CE6153, dark red #3E3035 (in place of black),
+     dark green #5F7B71 (in place of greys). Lighter/darker steps below are tints of these. */
+  --cyan: #57bebb;
+  --red: #ce6153;
+  --dark-red: #3e3035;
+  --dark-green: #5f7b71;
+  --bg: var(--dark-red);
+  --surface: #47383e;
+  --surface-alt: #514147;
   --text: #f4f3ed;
-  --muted: #afb2a9;
-  --line: #343731;
-  /* Pure red for accents and filled areas in both themes. */
-  --accent: #ff0000;
-  --accent-solid: #ff0000;
-  /* Buttons: dark grey in both themes. */
-  --button-bg: #2f322e;
-  --button-border: #4a4e47;
+  --muted: #b2c6be;   /* light tint of the dark green, readable on dark red */
+  --line: #5a5e5c;    /* dark green blended into the background */
+  /* Red for accents and filled areas; cyan for hover, focus, and secondary accents. */
+  --accent: var(--red);
+  --accent-solid: var(--red);
+  --accent-2: var(--cyan);
+  /* Buttons: dark green in both themes. */
+  --button-bg: var(--dark-green);
+  --button-border: #7a958b;
   --max-width: 1224px;
   --gutter: clamp(22px, 4vw, 64px);
 }
 :root.light-mode {
   color-scheme: light;
   --bg: #fff;
-  --surface: #f5f3ee;
-  --surface-alt: #e8e6e0;
-  --text: #171916;
-  --muted: #575c51;
-  --line: #d1d3c9;
+  --surface: #f6f2f1;
+  --surface-alt: #ebe4e3;
+  --text: var(--dark-red);
+  --muted: #4f685f;   /* dark green, darkened slightly for small text on white */
+  --line: #cfdad5;
   --accent: var(--accent-solid);
+  --accent-2: #2f8f8c; /* deeper cyan so it stays visible on white */
+  --button-border: var(--dark-green);
 }

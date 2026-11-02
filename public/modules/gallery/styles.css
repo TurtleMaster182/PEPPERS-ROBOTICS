@@ -4,9 +4,9 @@
 .album-icon { color: var(--accent); font: 400 20px 'ROG', monospace; grid-column: 1 / -1; }
 .album-button .eyebrow { display: block; font-size: 8px; color: var(--muted); margin-bottom: 8px; }
 .album-button strong { font-family: 'ROG', Archivo, Arial, sans-serif; font-size: 18px; }
-.album-button > span:last-child { align-self: end; display: grid; place-items: center; width: 40px; height: 40px; background: var(--button-bg); border: 1px solid var(--button-border); color: var(--accent); font-size: 18px; box-shadow: 3px 3px 0 var(--accent-solid); transition: background-color .15s, color .15s; }
-.album-button:hover { border-color: var(--accent); background: var(--surface-alt); }
-.album-button:hover > span:last-child { background: var(--accent-solid); border-color: var(--accent-solid); color: #fff; }
+.album-button > span:last-child { align-self: end; display: grid; place-items: center; width: 40px; height: 40px; background: var(--button-bg); border: 1px solid var(--button-border); color: #fff; font-size: 18px; box-shadow: 3px 3px 0 var(--accent-solid); transition: background-color .15s, color .15s; }
+.album-button:hover { border-color: var(--accent-2); background: var(--surface-alt); }
+.album-button:hover > span:last-child { background: var(--cyan); border-color: var(--cyan); color: var(--dark-red); }
 @media (max-width: 800px) {
   .album-grid { grid-template-columns: 1fr; }
 }
@@ -19,7 +19,7 @@
 .memory { flex: none; height: clamp(153px, 18vw, 243px); background: var(--surface-alt); border: 1px solid var(--line); padding: 8px; transition: transform .3s ease, border-color .3s; }
 .memory:nth-child(odd) { rotate: -1.2deg; }
 .memory:nth-child(even) { rotate: 1deg; }
-.memory:hover { transform: scale(1.04); rotate: 0deg; border-color: var(--accent); z-index: 1; position: relative; }
+.memory:hover { transform: scale(1.04); rotate: 0deg; border-color: var(--accent-2); z-index: 1; position: relative; }
 .memory img { height: 100%; width: auto; object-fit: cover; }
 @media (max-width: 600px) {
   .memory-wall, .memory-row { gap: 10px; }

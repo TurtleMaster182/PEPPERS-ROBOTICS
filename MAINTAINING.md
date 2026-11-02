@@ -67,7 +67,7 @@ The film's source and poster are set in the `[data-open-film]` handler in `publi
 
 ## Change colors, navigation, or contact details
 
-- Edit `public/css/theme.css` for colors. `--accent` and `--accent-solid` both use pure red `#ff0000` for accents, buttons, and filled areas in both themes. Light-theme differences belong in `:root.light-mode` in that same file.
+- Edit `public/css/theme.css` for colors. The team palette is at the top of `:root`: cyan `#57BEBB`, red `#CE6153`, dark red `#3E3035` (used instead of black) and dark green `#5F7B71` (used instead of greys). `--accent` (red) is for accents and filled areas, `--accent-2` (cyan) for hover and focus, `--button-bg` (dark green) for buttons. Light-theme differences belong in `:root.light-mode` in that same file.
 - Edit `public/modules/header/section.html` and `public/modules/footer/section.html` for navigation links. An `href="#events"` must match an element with `id="events"`.
 - The email is intentionally visible in several places. Search the project for `contact@peppers-robotics.ro` when changing it, including links' `mailto:` addresses and bot facts. Social links appear in contact and footer modules.
 - Site title, description, fonts, and script links live in `src/index.html`. Theme preference is applied by `public/js/theme.js` before the page paints.

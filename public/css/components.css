@@ -4,15 +4,15 @@
 .brand span { color: var(--accent); font-family: 'ROG', Arial, sans-serif; font-size: 12px; font-weight: 400; letter-spacing: .02em; }
 .icon-button { display: inline-grid; place-items: center; width: 38px; height: 38px; padding: 0; border: 1px solid var(--line); border-radius: 50%; background: transparent; font-size: 19px; }
 .icon-button { border-color: var(--muted); }
-.icon-button:hover { background: var(--surface-alt); border-color: var(--accent); }
-/* Buttons: dark grey blocks with a red arrow and a fixed red offset shadow, so they read
-   as pressable. They do not move; hover only changes colour. Colours live in theme.css. */
+.icon-button:hover { background: var(--surface-alt); border-color: var(--accent-2); }
+/* Buttons: dark green blocks with a white arrow and a fixed red offset shadow, so they read
+   as pressable. They do not move; hover turns them cyan. Colours live in theme.css. */
 .button { display: inline-flex; justify-content: space-between; align-items: center; gap: 24px; padding: 14px 20px; background: var(--button-bg); color: #fff; border: 1px solid var(--button-border); font-size: 12px; font-weight: 800; letter-spacing: .01em; box-shadow: 4px 4px 0 var(--accent-solid); transition: background-color .15s, border-color .15s, box-shadow .15s; }
-.button > span[aria-hidden="true"] { color: var(--accent); font-size: 14px; line-height: 1; transition: color .15s; }
-.button:hover { background: var(--accent-solid); border-color: var(--accent-solid); box-shadow: 4px 4px 0 var(--text); }
-.button:hover > span[aria-hidden="true"] { color: #fff; }
+.button > span[aria-hidden="true"] { color: #fff; font-size: 14px; line-height: 1; transition: color .15s; }
+.button:hover { background: var(--cyan); border-color: var(--cyan); color: var(--dark-red); }
+.button:hover > span[aria-hidden="true"] { color: var(--dark-red); }
 .text-button { display: inline-flex; align-items: center; gap: 14px; border: 0; padding: 10px 0; background: none; font-size: 11px; font-weight: 700; text-align: left; text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 5px; }
-.text-button:hover { color: var(--accent); }
+.text-button:hover { color: var(--accent-2); }
 .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 24px; }
 .accent-text { color: var(--accent); }
 /* .button-accent and .button-outline are kept as hooks; every button shares the white style. */

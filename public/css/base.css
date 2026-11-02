@@ -13,7 +13,7 @@ button, textarea { font: inherit; }
 button { cursor: pointer; }
 button, a, textarea, summary { -webkit-tap-highlight-color: transparent; }
 button:disabled { cursor: wait; opacity: .65; }
-:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 5px; }
 img, video { display: block; max-width: 100%; }
 button { color: inherit; }
 [hidden] { display: none !important; }
@@ -25,7 +25,7 @@ button { color: inherit; }
 .skip-link:focus { transform: none; }
 summary { list-style: none; cursor: pointer; }
 summary::-webkit-details-marker { display: none; }
-summary:hover { color: var(--accent); }
+summary:hover { color: var(--accent-2); }
 summary > span { font-size: 16px; transition: transform .15s; }
 details[open] > summary > span { transform: rotate(45deg); }
 @media (max-width: 760px) {

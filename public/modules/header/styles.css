@@ -3,7 +3,7 @@
 .header-inner { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
 .site-header nav, .header-actions { display: flex; align-items: center; gap: 22px; }
 .site-header nav a { font-size: 12px; font-weight: 600; }
-.site-header a:hover { color: var(--accent); }
+.site-header a:hover { color: var(--accent-2); }
 .header-actions { gap: 20px; }
 .menu-toggle { display: none; padding: 10px 0; background: none; border: 0; font-size: 12px; }
 .menu-toggle span { margin-left: 8px; }
@@ -33,5 +33,5 @@
 }
 
 /* Reading progress along the bottom edge of the header. */
-.scroll-progress { position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; background: var(--accent); transform-origin: left; transform: scaleX(var(--progress, 0)); pointer-events: none; }
+.scroll-progress { position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; background: var(--accent-2); transform-origin: left; transform: scaleX(var(--progress, 0)); pointer-events: none; }
 
