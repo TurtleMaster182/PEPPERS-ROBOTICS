@@ -30,16 +30,16 @@
    --accent-tint, --accent-glow     faint highlight column and background glow
    Pick a palette with ?palette=lava or ?palette=team in the address (js/theme.js). */
 
-/* "Lava" palette (default): neutral black background; the palette is used only for accents.
+/* "Lava" palette (default): deep burgundy #30020E background; the palette is used only for accents.
    Amber Honey #E7A500 highlights and hover, Hunter Green #2C5C20 buttons, Molten Lava #740505
    filled areas and button shadows, Night Bordeaux #50000B faint tints, Onyx #041500 text on amber. */
 :root {
-  --bg: #0a0a0a;
-  --surface: #131313;
-  --surface-alt: #1c1c1c;
-  --text: #f4f3ed;
-  --muted: #a9a9a4;
-  --line: #2b2b2b;
+  --bg: #30020e;
+  --surface: #3a0815;      /* lifted shades of the background for panels and cards */
+  --surface-alt: #46101e;
+  --text: #f6f1ea;
+  --muted: #c9b2b6;
+  --line: #55202d;
   --accent: #e7a500;
   --accent-solid: #740505;
   --accent-2: #e7a500;
