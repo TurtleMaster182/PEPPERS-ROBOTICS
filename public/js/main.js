@@ -12,7 +12,6 @@ import { initDitherReveals } from './dither-reveal.js';
 import { initViewportPhotos } from './viewport-photos.js';
 import { initScrollIndicators } from './scroll-fx.js';
 import { initHeatFlames } from './heat-flames.js';
-import { initHangingPeppers } from './hanging-peppers.js';
 
 initViewportPhotos();
 
@@ -30,4 +29,3 @@ initContact();
 initDitherReveals();
 initScrollIndicators();
 initHeatFlames();
-initHangingPeppers();

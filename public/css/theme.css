@@ -16,7 +16,7 @@
   /* Pure red for accents and filled areas in both themes. */
   --accent: #ff0000;
   --accent-solid: #ff0000;
-  --max-width: 1360px;
+  --max-width: 1224px;
   --gutter: clamp(22px, 4vw, 64px);
 }
 :root.light-mode {

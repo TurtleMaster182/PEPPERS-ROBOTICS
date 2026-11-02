@@ -24,7 +24,7 @@ if (missingSettings.length) {
 
 const root = fileURLToPath(new URL('../public/', import.meta.url));
 const config = JSON.parse(await readFile(new URL('../vercel.json', import.meta.url), 'utf8'));
-const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.js': 'text/javascript', '.json': 'application/json', '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.gif': 'image/gif', '.webp': 'image/webp', '.ico': 'image/x-icon', '.webm': 'video/webm', '.glb': 'model/gltf-binary' };
+const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.js': 'text/javascript', '.json': 'application/json', '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.gif': 'image/gif', '.webp': 'image/webp', '.ico': 'image/x-icon', '.webm': 'video/webm', '.mp4': 'video/mp4', '.glb': 'model/gltf-binary' };
 const port = Number(process.env.PORT || 4173);
 
 await buildPage();

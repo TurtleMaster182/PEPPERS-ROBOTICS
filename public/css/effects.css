@@ -20,7 +20,7 @@ img[data-viewport-src] { visibility: hidden; }
 /*.liquid-glass { border-radius: 22px; }
 .liquid-glass-defs { position: absolute; width: 0; height: 0; overflow: hidden; }*/
 
-/* Pixel flames along the bottom of the screen (js/heat-flames.js). */
-.heat-flames { position: fixed; left: 0; bottom: 0; width: 100%; z-index: 15; image-rendering: pixelated; pointer-events: none; mix-blend-mode: screen; }
-:root.light-mode .heat-flames { mix-blend-mode: normal; opacity: .9; }
+/* Pixel flames along the bottom of the screen (js/heat-flames.js). 80% transparent so they stay in the background. */
+.heat-flames { position: fixed; left: 0; bottom: 0; width: 100%; z-index: 15; image-rendering: pixelated; pointer-events: none; mix-blend-mode: screen; opacity: .2; }
+:root.light-mode .heat-flames { mix-blend-mode: normal; }
 body.dialog-open .heat-flames { display: none; }

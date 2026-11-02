@@ -1,11 +1,13 @@
 /* Gallery. Keep this module’s responsive rules here too. */
-.album-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
-.album-button { padding: 25px 20px; text-align: left; display: grid; grid-template-columns: 1fr auto; gap: 20px; border: 1px solid var(--line); background: var(--surface); }
-.album-icon { color: var(--accent); font: 400 22px 'ROG', monospace; grid-column: 1 / -1; }
+.album-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 26px; }
+.album-button { padding: 25px 20px; text-align: left; display: grid; grid-template-columns: 1fr auto; gap: 20px; border: 2px solid var(--line); background: var(--surface); transition: transform .15s ease, box-shadow .15s ease, border-color .15s; }
+.album-icon { color: var(--accent); font: 400 20px 'ROG', monospace; grid-column: 1 / -1; }
 .album-button .eyebrow { display: block; font-size: 8px; color: var(--muted); margin-bottom: 8px; }
-.album-button strong { font-family: 'ROG', Archivo, Arial, sans-serif; font-size: 20px; }
-.album-button > span:last-child { align-self: end; font-size: 24px; }
-.album-button:hover { border-color: var(--accent); }
+.album-button strong { font-family: 'ROG', Archivo, Arial, sans-serif; font-size: 18px; }
+.album-button > span:last-child { align-self: end; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--accent-solid); color: #fff; font-size: 18px; transition: transform .15s ease; }
+.album-button:hover { border-color: var(--accent); transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--accent-solid); }
+.album-button:hover > span:last-child { transform: rotate(45deg); }
+.album-button:active { transform: translate(2px, 2px); box-shadow: 0 0 0 var(--accent-solid); }
 @media (max-width: 800px) {
   .album-grid { grid-template-columns: 1fr; }
 }
@@ -15,7 +17,7 @@
 .memory-row { display: flex; gap: 16px; width: max-content; transform: translateX(var(--drift, 0px)); will-change: transform; }
 .memory-row[data-drift="-1"] { margin-left: calc(var(--gutter) * -1); }
 .memory-row[data-drift="1"] { margin-left: -260px; }
-.memory { flex: none; height: clamp(170px, 20vw, 270px); background: var(--surface-alt); border: 1px solid var(--line); padding: 8px; transition: transform .3s ease, border-color .3s; }
+.memory { flex: none; height: clamp(153px, 18vw, 243px); background: var(--surface-alt); border: 1px solid var(--line); padding: 8px; transition: transform .3s ease, border-color .3s; }
 .memory:nth-child(odd) { rotate: -1.2deg; }
 .memory:nth-child(even) { rotate: 1deg; }
 .memory:hover { transform: scale(1.04); rotate: 0deg; border-color: var(--accent); z-index: 1; position: relative; }

@@ -23,7 +23,7 @@ Start with [MAINTAINING.md](MAINTAINING.md) for common editing tasks and the han
 
 | Location | What to edit there |
 | --- | --- |
-| `public/modules/header/` | Navigation, mobile menu, theme button, scroll progress line, and hanging peppers |
+| `public/modules/header/` | Navigation, mobile menu, theme button and scroll progress line |
 | `public/modules/hero/` | Opening workshop photo, headline, and featured robot |
 | `public/modules/mission/` | 01 Who we are: team, mission, what FTC is, quick facts, spinning badge |
 | `public/modules/events/` | 02 News: event listings and category filters |
@@ -48,7 +48,6 @@ Start with [MAINTAINING.md](MAINTAINING.md) for common editing tasks and the han
 | `public/js/dither-reveal.js`, `public/js/photo-burn.js`, `public/js/liquid-glass.js` | Shared visual effects |
 | `public/js/scroll-fx.js` | Shared scroll reader, progress line, and spinning badge |
 | `public/js/heat-flames.js` | Pixel flames at the bottom of the screen that grow with scroll |
-| `public/js/hanging-peppers.js` | Swinging peppers under the header |
 | `public/chat-widget.js`, `public/chat-widget.css` | Q&A widget |
 | `lib/team-info.mjs` | Team facts supplied to the Q&A bot |
 | `api/chat.js`, `lib/chat-security.mjs` | Chat endpoint and request validation |
@@ -56,7 +55,7 @@ Start with [MAINTAINING.md](MAINTAINING.md) for common editing tasks and the han
 
 Inside a section folder, **`section.html` is the content**, **`styles.css` is its appearance**, and **`index.js` is its behavior**. Static sections need no JavaScript file. Keep a section's responsive rules in its own stylesheet.
 
-`public/index.html` is generated. Edit the module HTML or `src/index.html` instead. `public/styles.css` is only the stylesheet import list. `public/js/details.js` is a compatibility export; edit `public/modules/details/index.js` for dialog behavior.
+`public/index.html` is generated. Edit the module HTML or `src/index.html` instead. `public/styles.css` is only the stylesheet import list; the build expands it into parallel `<link>` tags. `public/js/details.js` is a compatibility export; edit `public/modules/details/index.js` for dialog behavior.
 
 All browser asset paths start at `public/`: use `photos/name.jpg`, not `public/photos/name.jpg`. CSS image/font URLs are relative to the stylesheet that contains them.
 
@@ -81,4 +80,4 @@ The **Coming Soon pug is permanent**. Keep its `coming-soon` ID, image `https://
 
 Event dates, venues, and attendance arrangements are provisional. Keep the draft notice until the team confirms them. Confirm model-to-season assignments before replacing the demo models, and use approved sponsor information. Recruitment is school-only; update the FAQ only with approved school information.
 
-The confirmed email is `contact@peppers-robotics.ro`; social accounts use `cyliispepp`. Large photos, film, GIFs, and GLB files remain under their original paths. The remote pug, Google Fonts, and pinned 3D libraries require a connection; fallback fonts and gallery error states handle unavailable resources.
+The confirmed email is `contact@peppers-robotics.ro`; social accounts use `cyliispepp`. Photos, the film, short clips (formerly GIFs), and compressed GLB files remain under their original paths. The remote pug, Google Fonts, and pinned 3D libraries require a connection; fallback fonts and gallery error states handle unavailable resources.

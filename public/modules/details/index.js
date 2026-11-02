@@ -95,9 +95,19 @@ export function initDetails() {
       gallery.className = 'detail-gallery';
       season.media.forEach(item => {
         const figure = document.createElement('figure');
-        const media = document.createElement(item.type === 'video' ? 'video' : 'img');
+        const isVideo = item.type === 'video' || item.type === 'clip';
+        const media = document.createElement(isVideo ? 'video' : 'img');
         media.src = item.src;
-        if (item.type === 'video') {
+        if (item.type === 'clip') {
+          // Short silent loops (formerly GIFs): play like an animated image.
+          media.muted = true;
+          media.loop = true;
+          media.autoplay = true;
+          media.playsInline = true;
+          media.preload = 'metadata';
+          media.setAttribute('aria-label', item.alt);
+          if (item.poster) media.poster = item.poster;
+        } else if (item.type === 'video') {
           media.controls = true;
           media.playsInline = true;
           media.preload = 'none';
