@@ -1,7 +1,7 @@
 /* Events. Keep this module’s responsive rules here too. */
 .event-controls { display: flex; justify-content: space-between; align-items: center; gap: 20px; margin-bottom: 36px; }
 .filter-buttons { display: flex; flex-wrap: wrap; gap: 8px; }
-.filter-buttons button { border: 1.5px solid var(--muted); border-radius: 999px; background: transparent; padding: 10px 18px; font-size: 11px; font-weight: 700; transition: border-color .15s, background-color .15s; }
+.filter-buttons button { border: 1.5px solid var(--muted); background: transparent; padding: 10px 18px; font-size: 11px; font-weight: 700; transition: border-color .15s, background-color .15s; }
 .filter-buttons button[aria-pressed="true"] { background: var(--text); color: var(--bg); border-color: var(--text); }
 .filter-buttons button:hover { border-color: var(--accent); background: var(--surface-alt); }
 .filter-buttons button[aria-pressed="true"]:hover { background: var(--text); }
@@ -16,12 +16,11 @@
 .event-card h3 { font-size: 22px; min-height: 52px; }
 .event-location { font-size: 11px; color: var(--muted); margin-top: 18px; min-height: 36px; }
 .event-time { font-size: 10px; margin-top: 5px; margin-bottom: 23px; }
-/* Same white pill as .button, with the +/× in the red chip. */
-.event-card summary { display: flex; justify-content: space-between; align-items: center; min-height: 44px; padding: 7px 7px 7px 20px; background: #fff; color: #101110; border: 1.5px solid #fff; border-radius: 999px; font-size: 11px; font-weight: 800; transition: background-color .15s, color .15s, border-color .15s; }
-.event-card summary > span { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: var(--accent-solid); color: #fff; font-size: 16px; line-height: 1; }
-.event-card summary:hover { background: var(--accent-solid); color: #fff; border-color: var(--accent-solid); }
-.event-card summary:hover > span { background: #fff; color: var(--accent-solid); }
-:root.light-mode .event-card summary { border-color: #101110; }
+/* Same look as .button. */
+.event-card summary { display: flex; justify-content: space-between; align-items: center; padding: 12px 15px; background: var(--button-bg); color: #fff; border: 1px solid var(--button-border); font-size: 11px; font-weight: 800; box-shadow: 4px 4px 0 var(--accent-solid); transition: background-color .15s, border-color .15s, box-shadow .15s; }
+.event-card summary > span { color: var(--accent); }
+.event-card summary:hover { color: #fff; background: var(--accent-solid); border-color: var(--accent-solid); box-shadow: 4px 4px 0 var(--text); }
+.event-card summary:hover > span { color: #fff; }
 .event-more { padding-top: 18px; font-size: 11px; color: var(--muted); }
 .event-more p + p { margin-top: 13px; }
 .filter-status { color: var(--muted); font-size: 9px; margin-top: 18px; }
@@ -42,23 +41,3 @@
   .filter-buttons { gap: 6px; }
   .filter-buttons button { padding: 10px 12px; font-size: 10px; }
 }
-
-/* Event preview card, positioned by modules/events/index.js (like a Wikipedia link preview). */
-.event-card.has-preview { cursor: pointer; transition: border-color .15s; }
-.event-card.has-preview:hover { border-color: var(--accent); }
-.event-popup { position: absolute; z-index: 30; width: min(340px, calc(100vw - 32px)); padding: 20px 22px 22px; background: var(--bg); color: var(--text); border: 1px solid var(--line); border-top: 3px solid var(--accent); box-shadow: 0 18px 44px #000a; opacity: 0; translate: 0 6px; transition: opacity .15s, translate .15s; }
-.event-popup.is-visible { opacity: 1; translate: 0 0; }
-.event-popup:focus { outline: none; }
-.event-popup:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-/* Small notch pointing at the event title. */
-.event-popup::before { content: ""; position: absolute; left: var(--notch, 28px); top: -9px; width: 12px; height: 12px; background: var(--accent); rotate: 45deg; translate: -50% 0; z-index: -1; }
-.event-popup.is-above::before { top: auto; bottom: -7px; background: var(--bg); border: solid var(--line); border-width: 0 1px 1px 0; }
-.event-popup .eyebrow { color: var(--accent); font-size: 9px; padding-right: 28px; }
-.event-popup-title { display: block; margin: 8px 0 6px; font: 800 19px/1.15 Archivo, Arial, sans-serif; letter-spacing: -.02em; }
-.event-popup-meta { font-size: 11px; color: var(--text); padding-bottom: 12px; border-bottom: 1px solid var(--line); }
-.event-popup-body { font-size: 12px; color: var(--muted); }
-.event-popup-body p { margin-top: 12px; }
-.event-popup-body .button { margin-top: 16px; font-size: 11px; }
-.event-popup-close { position: absolute; top: 12px; right: 12px; display: grid; place-items: center; width: 26px; height: 26px; padding: 0; border: 1px solid var(--muted); border-radius: 50%; background: transparent; font-size: 15px; line-height: 1; }
-.event-popup-close:hover { border-color: var(--accent); color: var(--accent); }
-:root.light-mode .event-popup { box-shadow: 0 18px 44px #0003; }

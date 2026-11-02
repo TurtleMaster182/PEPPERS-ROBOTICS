@@ -30,7 +30,7 @@ Keep the permanent Coming Soon pug alongside new seasons. Keep real robot files 
 
 Edit `public/modules/events/section.html`. Each `article.event-card` contains its visible date, title, location, time, and expandable details. Keep `time datetime="YYYY-MM-DD"` consistent with the displayed date.
 
-`data-event-kind` must match a `data-event-filter` button (`competition` or `community`). If you add a category, add a matching filter too. Update the initial `eventFilterStatus` count when adding or removing cards. Keep the draft notice until the schedule is confirmed. Put confirmed registration or livestream links inside the event details. Hovering or clicking a card shows those details in a small preview card (like a Wikipedia link preview), built from the card's date, location, time, and `.event-more` content; behavior is in `public/modules/events/index.js`, styles at the end of that folder's `styles.css`.
+`data-event-kind` must match a `data-event-filter` button (`competition` or `community`). If you add a category, add a matching filter too. Update the initial `eventFilterStatus` count when adding or removing cards. Keep the draft notice until the schedule is confirmed. Put confirmed registration or livestream links inside the event details.
 
 ## Add a sponsor to the sponsor bar
 
@@ -54,6 +54,8 @@ In `public/modules/sponsors/section.html`:
 ## Projects and awards
 
 `public/modules/showcase/section.html` has one `li.project-card` per program and one `li` per award in `ol.award-list`. Update the counts in the tab buttons (`Projects <span>9</span>`) when adding or removing items; tests check them. Awards should match `achievements` in `lib/team-info.mjs`, so the Q&A bot stays in step. Add `class="is-major"` to an award to give it a star.
+
+Hovering or clicking a project or award opens a small preview card (like a Wikipedia link preview). The card shows text marked `class="preview-only"`: a project's description, or an award's `p.award-more` season summary. That text is hidden in the list while JavaScript runs and visible without it. Keep it to approved facts. Behavior: `public/js/hover-preview.js` (shared) and `initShowcasePreviews` in `public/modules/showcase/index.js`; styles: `public/css/preview.css`.
 
 ## Change gallery photos or the film
 

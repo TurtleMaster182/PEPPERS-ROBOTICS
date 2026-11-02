@@ -1,0 +1,21 @@
+/* Wikipedia-style preview cards (js/hover-preview.js), used by Projects & awards. */
+.hover-preview { position: absolute; z-index: 30; width: min(340px, calc(100vw - 32px)); padding: 20px 22px 22px; background: var(--bg); color: var(--text); border: 1px solid var(--line); border-top: 3px solid var(--accent); box-shadow: 0 18px 44px #000a; opacity: 0; translate: 0 6px; transition: opacity .15s, translate .15s; }
+.hover-preview.is-visible { opacity: 1; translate: 0 0; }
+.hover-preview:focus { outline: none; }
+.hover-preview:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+/* Small notch pointing at the item's title. */
+.hover-preview::before { content: ""; position: absolute; left: var(--notch, 28px); top: -9px; width: 12px; height: 12px; background: var(--accent); rotate: 45deg; translate: -50% 0; z-index: -1; }
+.hover-preview.is-above::before { top: auto; bottom: -7px; background: var(--bg); border: solid var(--line); border-width: 0 1px 1px 0; }
+.hover-preview .eyebrow { color: var(--accent); font-size: 9px; padding-right: 28px; }
+.hover-preview-title { display: block; margin: 8px 0 6px; font: 800 19px/1.15 Archivo, Arial, sans-serif; letter-spacing: -.02em; }
+.hover-preview-meta { font-size: 11px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+.hover-preview-text { font-size: 12px; color: var(--muted); margin-top: 12px; }
+.hover-preview .button { margin-top: 18px; font-size: 11px; }
+.hover-preview-close { position: absolute; top: 12px; right: 12px; display: grid; place-items: center; width: 26px; height: 26px; padding: 0; border: 1px solid var(--muted); border-radius: 50%; background: transparent; font-size: 15px; line-height: 1; }
+.hover-preview-close:hover { border-color: var(--accent); color: var(--accent); }
+:root.light-mode .hover-preview { box-shadow: 0 18px 44px #0003; }
+
+/* Items that open a preview: the text moves into the card, a + marks them as openable. */
+.js .preview-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.has-preview { cursor: pointer; }
+.has-preview:focus-visible { outline-offset: 3px; }

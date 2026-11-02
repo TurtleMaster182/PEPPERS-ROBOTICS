@@ -5,17 +5,12 @@
 .icon-button { display: inline-grid; place-items: center; width: 38px; height: 38px; padding: 0; border: 1px solid var(--line); border-radius: 50%; background: transparent; font-size: 19px; }
 .icon-button { border-color: var(--muted); }
 .icon-button:hover { background: var(--surface-alt); border-color: var(--accent); }
-/* Buttons: white pills with a red arrow chip, so they read as "press me" at a glance.
-   No movement; hover only swaps colours. Light theme adds a dark outline (see below). */
-.button { display: inline-flex; justify-content: space-between; align-items: center; gap: 18px; min-height: 44px; padding: 7px 7px 7px 22px; background: #fff; color: #101110; border: 1.5px solid #fff; border-radius: 999px; font-size: 12px; font-weight: 800; letter-spacing: .01em; box-shadow: 0 6px 18px #0000004d; transition: background-color .15s, color .15s, border-color .15s; }
-.button:not(:has(> span[aria-hidden="true"])) { padding-right: 22px; }
-.button > span[aria-hidden="true"] { flex: none; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: var(--accent-solid); color: #fff; font-size: 13px; line-height: 1; transition: background-color .15s, color .15s; }
-.button:hover { background: var(--accent-solid); color: #fff; border-color: var(--accent-solid); }
-.button:hover > span[aria-hidden="true"] { background: #fff; color: var(--accent-solid); }
-.button:focus-visible { outline-color: #fff; outline-offset: 4px; }
-:root.light-mode .button { border-color: #101110; box-shadow: none; }
-:root.light-mode .button:hover { border-color: var(--accent-solid); }
-:root.light-mode .button:focus-visible { outline-color: var(--accent); }
+/* Buttons: dark grey blocks with a red arrow and a fixed red offset shadow, so they read
+   as pressable. They do not move; hover only changes colour. Colours live in theme.css. */
+.button { display: inline-flex; justify-content: space-between; align-items: center; gap: 24px; padding: 14px 20px; background: var(--button-bg); color: #fff; border: 1px solid var(--button-border); font-size: 12px; font-weight: 800; letter-spacing: .01em; box-shadow: 4px 4px 0 var(--accent-solid); transition: background-color .15s, border-color .15s, box-shadow .15s; }
+.button > span[aria-hidden="true"] { color: var(--accent); font-size: 14px; line-height: 1; transition: color .15s; }
+.button:hover { background: var(--accent-solid); border-color: var(--accent-solid); box-shadow: 4px 4px 0 var(--text); }
+.button:hover > span[aria-hidden="true"] { color: #fff; }
 .text-button { display: inline-flex; align-items: center; gap: 14px; border: 0; padding: 10px 0; background: none; font-size: 11px; font-weight: 700; text-align: left; text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 5px; }
 .text-button:hover { color: var(--accent); }
 .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 24px; }

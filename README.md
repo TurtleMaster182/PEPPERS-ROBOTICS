@@ -46,6 +46,7 @@ Start with [MAINTAINING.md](MAINTAINING.md) for common editing tasks and the han
 | `public/js/main.js` | Startup list; section behavior belongs in its module |
 | `public/js/theme.js`, `public/js/reveal-boot.js` | Tiny scripts that run before the page paints |
 | `public/js/viewer.js`, `public/js/photo-deck.js` | Shared 3D viewer and photo stack behavior |
+| `public/js/hover-preview.js` | Wikipedia-style preview cards (Projects & awards) |
 | `public/js/dither-reveal.js`, `public/js/photo-burn.js`, `public/js/liquid-glass.js` | Shared visual effects |
 | `public/js/scroll-fx.js` | Shared scroll reader, progress line, and spinning badge |
 | `public/js/heat-flames.js` | Pixel flames at the bottom of the screen that grow with scroll |
