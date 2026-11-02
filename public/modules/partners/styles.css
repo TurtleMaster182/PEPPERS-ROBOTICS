@@ -10,7 +10,7 @@
 .marquee.is-running:is(:hover, :focus-within) .marquee-track { animation-play-state: paused; }
 @keyframes marquee { to { transform: translateX(-50%); } }
 .sponsor-chip { position: relative; display: flex; align-items: center; min-width: 189px; height: 67px; padding: 0 26px; border: 1px solid var(--line); background: var(--bg); transition: border-color .2s, transform .2s; }
-.sponsor-chip:hover, .sponsor-chip:focus-visible { border-color: var(--accent); }
+.sponsor-chip:hover, .sponsor-chip:focus-visible { border-color: var(--accent-2); }
 .sponsor-logo { font: 800 16px/1.1 Archivo, Arial, sans-serif; letter-spacing: -.02em; text-transform: uppercase; white-space: nowrap; }
 .sponsor-logo img { max-height: 40px; width: auto; }
 .sponsor-chip.is-open { border-style: dashed; }

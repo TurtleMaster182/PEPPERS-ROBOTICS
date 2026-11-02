@@ -10,6 +10,7 @@
 .mission-stats > div:first-child { border-left: 0; padding-left: 0; }
 .mission-stats dd { margin: 0; font: 800 clamp(40px, 4.95vw, 76px)/1 'ROG', Archivo, Arial, sans-serif; letter-spacing: -.05em; color: var(--text); }
 .mission-stats > div:nth-child(odd) dd { color: var(--accent); }
+.mission-stats > div:nth-child(even) dd { color: var(--accent-2); }
 .mission-stats dt { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; max-width: 22ch; }
 
 /* Circular badge that turns as the page scrolls (--spin is set by js/scroll-fx.js). */

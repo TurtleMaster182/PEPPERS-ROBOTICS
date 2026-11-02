@@ -1,5 +1,5 @@
 /* Support us: monthly support, sponsor tiers, other ways to help. Keep this module’s responsive rules here too. */
-.support-section { position: relative; background: radial-gradient(ellipse 70% 50% at 85% 0%, #ff000026, transparent 70%), var(--bg); }
+.support-section { position: relative; background: radial-gradient(ellipse 70% 50% at 85% 0%, #ce615333, transparent 70%), var(--bg); }
 .support-hero { display: grid; grid-template-columns: 1fr 1fr; gap: 6%; align-items: end; margin-bottom: clamp(44px, 6vw, 72px); }
 .support-hero h2 { font-size: clamp(58px, 9.9vw, 151px); line-height: .9; text-transform: uppercase; letter-spacing: -.05em; }
 .support-pitch p { color: var(--muted); font-size: 14px; max-width: 46ch; margin-bottom: 28px; }
@@ -13,7 +13,7 @@
 .tier-table tbody th { text-align: left; font-weight: 600; }
 .tier-table thead th { vertical-align: bottom; font: 800 18px/1.1 Archivo, Arial, sans-serif; text-transform: uppercase; letter-spacing: -.02em; }
 .tier-table thead th:first-child { text-align: left; font: 600 10px Inter, Arial, sans-serif; color: var(--muted); letter-spacing: .08em; }
-.tier-table thead th:last-child, .tier-table td:last-child { background: #ff000014; }
+.tier-table thead th:last-child, .tier-table td:last-child { background: #ce61531f; }
 .tier-table thead th:last-child { box-shadow: inset 0 3px 0 var(--accent); }
 .tier-table small { display: block; margin-top: 6px; font: 500 9px Inter, Arial, sans-serif; text-transform: none; letter-spacing: 0; color: var(--muted); }
 .tier-heat { display: flex; justify-content: center; gap: 2px; margin-bottom: 10px; color: var(--accent); }
